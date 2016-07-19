@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/level_background">
+    
+    <TableLayout 
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/pan"
+        >
+        <!-- 第一行 -->
+        <TableRow 
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+            >
+           <Button
+               
+               
+               android:background="@drawable/level1" 
+               android:layout_width="100dp"
+               android:layout_height="100dp"
+               android:id="@+id/button1"/>
+           <TextView 
+               android:layout_width="30dp"
+               android:layout_height="50dp"/>
+           <Button
+               
+               
+               android:background="@drawable/level2" 
+               android:layout_width="100dp"
+               android:layout_height="100dp"
+               android:id="@+id/button2"/> 
+           <TextView
+              android:layout_width="30dp"
+               android:layout_height="50dp"/>
+           <Button
+              
+               
+               android:background="@drawable/level3" 
+               android:layout_width="100dp"
+               android:layout_height="100dp"
+               android:id="@+id/button3"/>  
+        </TableRow>
+        <TableRow 
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+            >
+           <ImageView
+               android:background="@drawable/s1" 
+               android:layout_width="50dp"
+               android:layout_height="20dp"
+               />
+           <TextView 
+               android:layout_width="30dp"
+               android:layout_height="50dp"/>
+           <ImageView
+               android:background="@drawable/s2" 
+              android:layout_width="50dp"
+               android:layout_height="20dp"
+               /> 
+           <TextView
+              android:layout_width="30dp"
+               android:layout_height="50dp"/>
+           <ImageView
+               android:background="@drawable/s3" 
+              android:layout_width="50dp"
+               android:layout_height="20dp"
+               />  
+        </TableRow>
+        <!-- 第二行 -->
+        <TableRow 
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+            >
+           <Button
+              
+              
+               android:background="@drawable/level4" 
+               android:layout_width="100dp"
+               android:layout_height="100dp"
+               android:id="@+id/button4"/>
+           <TextView 
+               android:layout_width="30dp"
+               android:layout_height="50dp"/>
+           <Button
+               
+              
+               android:background="@drawable/level1" 
+               android:layout_width="100dp"
+               android:layout_height="100dp"
+               android:id="@+id/button5"/>
+           <TextView 
+               android:layout_width="30dp"
+               android:layout_height="50dp"/> 
+           <Button
+               
+               
+               android:background="@drawable/level4" 
+               android:layout_width="100dp"
+               android:layout_height="100dp"
+               android:id="@+id/button6"/>  
+        </TableRow>
+           <TableRow 
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+            >
+           <ImageView
+               android:background="@drawable/s4" 
+              android:layout_width="50dp"
+               android:layout_height="20dp"
+               />
+           <TextView 
+               android:layout_width="30dp"
+               android:layout_height="50dp"/>
+           <ImageView
+               android:background="@drawable/s5" 
+               android:layout_width="50dp"
+               android:layout_height="20dp"
+               /> 
+           <TextView
+              android:layout_width="30dp"
+               android:layout_height="50dp"/>
+           <ImageView
+               android:background="@drawable/s6" 
+               android:layout_width="50dp"
+               android:layout_height="20dp"
+               />  
+        </TableRow>
+        <!-- 第三行 -->
+        <TableRow 
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+            >
+           <Button
+              
+              
+               android:background="@drawable/level2" 
+               android:layout_width="100dp"
+               android:layout_height="100dp"
+               android:id="@+id/button7"/>
+           <TextView 
+               android:layout_width="30dp"
+               android:layout_height="50dp"/>
+           <Button
+              
+              
+               android:background="@drawable/level3" 
+               android:layout_width="100dp"
+               android:layout_height="100dp"
+               android:id="@+id/button8"/> 
+           <TextView 
+               android:layout_width="30dp"
+               android:layout_height="50dp"/>
+           <Button
+              
+                
+               android:background="@drawable/level1" 
+               android:layout_width="100dp"
+               android:layout_height="100dp"
+               android:id="@+id/button9"/>  
+        </TableRow>
+           <TableRow 
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+            >
+           <ImageView
+               android:background="@drawable/s7" 
+              android:layout_width="50dp"
+               android:layout_height="20dp"
+               />
+           <TextView 
+               android:layout_width="30dp"
+               android:layout_height="50dp"/>
+           <ImageView
+               android:background="@drawable/s8" 
+              android:layout_width="50dp"
+               android:layout_height="20dp"
+               /> 
+           <TextView
+              android:layout_width="30dp"
+               android:layout_height="50dp"/>
+           <ImageView
+               android:background="@drawable/s9" 
+              android:layout_width="50dp"
+               android:layout_height="20dp"
+               />  
+        </TableRow>
+        
+    </TableLayout>
+    <Button 
+               android:background="@drawable/go_menu" 
+               android:layout_width="50dp"
+               android:layout_height="50dp"
+               android:layout_alignParentBottom="true"
+               android:layout_alignParentLeft="true"
+               android:id="@+id/button_gomenu"
+        />
+
+</RelativeLayout>

@@ -1,0 +1,86 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.goanimal"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <!-- 指定android使用的SDK版本 sdk8 : 2.2 sdk20: sdk4.4w -->
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="20"/>
+    
+    <!-- 开启手机振动的权限 -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+	<uses-permission android:name="android.permission.RESTART_PACKAGES"/>"
+    <!-- 应用 -->
+    <application
+        android:name="com.goanimal.util.Data"
+        android:allowBackup="true"
+        android:icon="@drawable/title_a"
+        android:label="@string/app_name" >
+		
+        <!-- 游戏的入口 
+        	 android:theme="@android: style/Theme.NoTitleBar" : 窗口不需要标题栏
+        	 android:screenOrientation="landscape(模向) | portrait(纵向)"
+        -->
+        <activity
+            android:name="com.goanimal.activity.Welcome"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:screenOrientation="portrait">
+           <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity 
+            android:name="com.goanimal.activity.MainMenu"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:label="@string/menu_name"
+            android:screenOrientation="portrait">
+            
+        </activity>
+        <!-- 游戏的主窗口 -->
+        <activity android:name="com.goanimal.activity.Level1"
+            	  android:theme="@android:style/Theme.NoTitleBar"
+            	  android:screenOrientation="portrait">
+             
+        </activity>
+        <activity android:name="com.goanimal.activity.Level2"
+            	  android:theme="@android:style/Theme.NoTitleBar"
+            	  android:screenOrientation="portrait">
+             
+        </activity>
+        <activity android:name="com.goanimal.activity.Level3"
+            	  android:theme="@android:style/Theme.NoTitleBar"
+            	  android:screenOrientation="portrait">
+             
+        </activity>
+        <activity android:name="com.goanimal.activity.Level4"
+            	  android:theme="@android:style/Theme.NoTitleBar"
+            	  android:screenOrientation="portrait">
+             
+        </activity>
+        <activity android:name="com.goanimal.activity.Level5"
+            	  android:theme="@android:style/Theme.NoTitleBar"
+            	  android:screenOrientation="portrait">
+             
+        </activity>
+        <activity 
+            android:name="com.goanimal.activity.setActivity"
+            android:theme="@android:style/Theme.Dialog"
+            android:label="设置"
+            >
+        </activity>
+          <activity android:name="com.goanimal.activity.selectLevel"
+            	  android:theme="@android:style/Theme.NoTitleBar"
+            	  android:screenOrientation="portrait">
+        </activity>
+        <service 
+            android:name="com.goanimal.service.MusicService"
+            android:exported="true"
+            android:process=":remote">
+            
+        </service>
+    </application>
+
+</manifest>

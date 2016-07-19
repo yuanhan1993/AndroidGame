@@ -1,0 +1,28 @@
+<resources>
+
+    <string name="app_name">消除狂欢节!</string>
+    <string name="hist_score"><font size='18'>过关分数：50!</font></string>
+    <string name="total_score"><font size='18'>当前分数：</font></string>
+    <string name="go_menu">主菜单</string>
+    <string name="next_level">选  关</string>
+    <string name="exit_settings">游戏退出</string>
+    <string name="m_start">开启音乐</string>
+    <string name="m_close">关闭音乐</string>
+    <string name="menu_name">菜单</string>
+    <string name="s_start">开启音效</string>
+    <string name="s_close">关闭音效</string>
+    <string name="item1">1.江苏  魔女娜娜  5050</string>
+    <string name="item2">2.江苏  猫小萌      4050</string>
+    <string name="item3">3.江苏  双枪小帅  3050</string>
+    <string name="queding">确       定</string>
+    <string name="level1"><font size='24'>1</font></string>
+    <string name="level2"><font size='24'>2</font></string>
+    <string name="level3"><font size='24'>3</font></string>
+    <string name="level4"><font size='24'>4</font></string>
+    <string name="level5"><font size='24'>5</font></string>
+    <string name="level6"><font size='24'>6</font></string>
+    <string name="level7"><font size='24'>7</font></string>
+    <string name="level8"><font size='24'>8</font></string>
+    <string name="level9"><font size='24'>9</font></string>
+    
+</resources>

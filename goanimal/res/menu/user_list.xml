@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/item1"
+         android:title="@string/item1"
+         android:alphabeticShortcut="c"/>
+    <item android:id="@+id/item2"
+         android:title="@string/item2"
+         android:alphabeticShortcut="x"/>
+    <item android:id="@+id/item3"
+         android:title="@string/item3"
+         android:alphabeticShortcut="v"/>
+
+</menu>
