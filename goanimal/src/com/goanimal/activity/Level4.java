@@ -35,32 +35,32 @@ import com.goanimal.util.FileUtil;
 import com.goanimal.view.GameView4;
 
 /**
- * @author Ò£Ö¸ÌìÏÂ
+ * @author é¥æŒ‡å¤©ä¸‹
  *
  */
 @SuppressLint("ShowToast")
 public class Level4 extends Activity{
 
-	// ¶¨ÒåÓÎÏ·µÄÒµÎñ¶ÔÏó
+	// å®šä¹‰æ¸¸æˆçš„ä¸šåŠ¡å¯¹è±¡
 		private GameService4 gameService4;
-		// ¶¨ÒåGameView
+		// å®šä¹‰GameView
 		private GameView4 gameView4;
-		// ¶¨Òå¶¨Ê±Æ÷
+		// å®šä¹‰å®šæ—¶å™¨
 		private Timer timer;
-		// ¶¨Òå¿É×ßµãµÄ¼¯ºÏ
+		// å®šä¹‰å¯èµ°ç‚¹çš„é›†åˆ
 		private List<Point> points;
-		// ¶¨ÒåÒªÏÔÊ¾µÄÖé×Ó
+		// å®šä¹‰è¦æ˜¾ç¤ºçš„ç å­
 		private List<Bead> displayBeads;
-		// ¶¨ÒåÏûÖé×ÓµÄ´ÎÊı
+		// å®šä¹‰æ¶ˆç å­çš„æ¬¡æ•°
 		private int count = 0;
-		// ¶¨ÒåÒ»¸öËø
+		// å®šä¹‰ä¸€ä¸ªé”
 		private boolean lock = true;
-		// ¶¨ÒåÊÖ»úÕñ¶¯Æ÷
+		// å®šä¹‰æ‰‹æœºæŒ¯åŠ¨å™¨
 		private Vibrator vibrator;
-		/// ¶¨ÒåÒôĞ§²¥·ÅÊı×é
+		/// å®šä¹‰éŸ³æ•ˆæ’­æ”¾æ•°ç»„
 		private MediaPlayer[] soundPlayer = new MediaPlayer[Constant.SOUNDS.length];
 		
-		// ¶¨ÒåÒôĞ§ÊÇ·ñ²¥·ÅµÄ±êÊ¶·û
+		// å®šä¹‰éŸ³æ•ˆæ˜¯å¦æ’­æ”¾çš„æ ‡è¯†ç¬¦
 		private boolean isSoundPlay =false;
 		
 		@Override
@@ -70,46 +70,46 @@ public class Level4 extends Activity{
 			Data is=(Data) getApplicationContext();
 			setContentView(R.layout.level4);
 			isSoundPlay=is.get_isSound();
-			// »ñÈ¡ÓÎÏ·µÄÖ÷½çÃæ
+			// è·å–æ¸¸æˆçš„ä¸»ç•Œé¢
 			Level4.this.gameView4 = (GameView4)findViewById(R.id.gameView4);
 			  
            
-			// ´´½¨ÒµÎñ¶ÔÏó
+			// åˆ›å»ºä¸šåŠ¡å¯¹è±¡
 			gameService4 = (GameService4) new GameServiceImpl4(this, gameView4.getBeadBoard());
-			// ÉèÖÃÒµÎñ¶ÔÏó
+			// è®¾ç½®ä¸šåŠ¡å¯¹è±¡
 			gameView4.setGameService(gameService4);
-			Log.i("here", "¾ÍÕâÁË");
-			// ÎªgameView°ó¶¨´¥ÃşÊÂ¼ş
+			Log.i("here", "å°±è¿™äº†");
+			// ä¸ºgameViewç»‘å®šè§¦æ‘¸äº‹ä»¶
 			gameView4.setOnTouchListener(new View.OnTouchListener() {
 				@Override
 				public boolean onTouch(View view, MotionEvent event) {
-					// °´ÏÂ
+					// æŒ‰ä¸‹
 					if (event.getAction() == MotionEvent.ACTION_DOWN){
 						System.out.println(event.getX() + "===" + event.getY());
-						// ¸ù¾İÓÃ»§µã»÷µÄ×ø±ê»ñÈ¡Ïà¶ÔÓ¦µÄÖé×Ó
+						// æ ¹æ®ç”¨æˆ·ç‚¹å‡»çš„åæ ‡è·å–ç›¸å¯¹åº”çš„ç å­
 						Bead bead = gameService4.getSelectedBead(event.getX(), event.getY());
-						// ÓÃ»§Ñ¡ÖĞµÄÖé×Ó(Òª×ßµÄÖé×Ó)
+						// ç”¨æˆ·é€‰ä¸­çš„ç å­(è¦èµ°çš„ç å­)
 						if (bead != null && bead.getBitmap() != null && lock){
-							// ÎªgameViewÉèÖÃÑ¡ÖĞµÄÖé×Ó
+							// ä¸ºgameViewè®¾ç½®é€‰ä¸­çš„ç å­
 							gameView4.setSelectedBead(bead);
-							// ÒªÈÃÑ¡ÖĞµÄÖé×ÓÌø¶¯
+							// è¦è®©é€‰ä¸­çš„ç å­è·³åŠ¨
 							startAnim(Constant.FLAG_1, Constant.TIMER_1);
-							// ²¥·ÅÒôĞ§
+							// æ’­æ”¾éŸ³æ•ˆ
 							if (isSoundPlay) soundPlayer[0].start();
 						}else{
-							// Öé×Ó´æÔÚ,µ«ÊÇÃ»ÓĞÎ»Í¼
+							// ç å­å­˜åœ¨,ä½†æ˜¯æ²¡æœ‰ä½å›¾
 							if (bead != null && gameView4.getSelectedBead() != null){
-								// »ñÈ¡Á½¸öÖé×ÓÖ®¼äµÄÏßÂ·
+								// è·å–ä¸¤ä¸ªç å­ä¹‹é—´çš„çº¿è·¯
 								points = gameService4.getPath(gameView4.getSelectedBead(), bead);
 								if (!points.isEmpty()){
-									// ÎªgameViewÉèÖÃÄ¿µÄÖé×Ó
+									// ä¸ºgameViewè®¾ç½®ç›®çš„ç å­
 									gameView4.setTargetBead(bead);
-									// ¼ÓËø
+									// åŠ é”
 									lock = false;
-									// ¿ªÆô¶¯»­Ğ§¹û×ßÖé×Ó
+									// å¼€å¯åŠ¨ç”»æ•ˆæœèµ°ç å­
 									startAnim(Constant.FLAG_2, Constant.TIMER_2);
 								}else{
-									// ²¥·ÅÒôĞ§
+									// æ’­æ”¾éŸ³æ•ˆ
 									if (isSoundPlay) soundPlayer[1].start();
 								}
 							}
@@ -118,60 +118,60 @@ public class Level4 extends Activity{
 					return true;
 				}
 			});
-			// »ñÈ¡ÊÖ»úÕñ¶¯Æ÷
+			// è·å–æ‰‹æœºæŒ¯åŠ¨å™¨
 			vibrator = (Vibrator)this.getSystemService(Context.VIBRATOR_SERVICE);
-			// ³õÊ¼»¯ÒôĞ§
+			// åˆå§‹åŒ–éŸ³æ•ˆ
 			for (int i = 0; i < Constant.SOUNDS.length; i++){
 				soundPlayer[i] = MediaPlayer.create(this, Constant.SOUNDS[i]);
-				// ÉèÖÃÒôÆµÁ÷µÄÀàĞÍ
+				// è®¾ç½®éŸ³é¢‘æµçš„ç±»å‹
 				soundPlayer[i].setAudioStreamType(AudioManager.STREAM_MUSIC);
 			}
 			
 		}
 		
-		/** ÏûÏ¢´¦Àí¶ÔÏó */
+		/** æ¶ˆæ¯å¤„ç†å¯¹è±¡ */
 		private Handler handler = new Handler(new Handler.Callback() {
 			@Override
 			public boolean handleMessage(Message msg) {
 				switch (msg.what){
-					case Constant.FLAG_1: // ´ú±íÑ¡ÖĞÖé×ÓÌø¶¯
+					case Constant.FLAG_1: // ä»£è¡¨é€‰ä¸­ç å­è·³åŠ¨
 						gameView4.setIsFlag();
 						break;
-					case Constant.FLAG_2: // ´ú±í×ßÖé×Ó
+					case Constant.FLAG_2: // ä»£è¡¨èµ°ç å­
 						Point point = (Point)msg.obj;
 						if (point != null){
-							// ×ßÒ»µã
+							// èµ°ä¸€ç‚¹
 							gameView4.moveBead(point);
 						}else{
-							// ´ú±í×ßÍêÁËÖé×Ó --->ÏûÖé×Ó»òÕßÏÔÊ¾Èı¸öÖé×Ó
+							// ä»£è¡¨èµ°å®Œäº†ç å­ --->æ¶ˆç å­æˆ–è€…æ˜¾ç¤ºä¸‰ä¸ªç å­
 							autoScan(Constant.SCAN_TYPE_1);
 						}
 						break;
-					case Constant.FLAG_3: // ´ú±íÒÀ´ÎÏÔÊ¾Öé×Ó
+					case Constant.FLAG_3: // ä»£è¡¨ä¾æ¬¡æ˜¾ç¤ºç å­
 						Bead bead = (Bead)msg.obj;
 						if (bead != null){
-							// ÏÔÊ¾Ò»¸öÖé×Ó
+							// æ˜¾ç¤ºä¸€ä¸ªç å­
 							gameView4.displayBead(bead);
 						}else{
-							// ´ú±íÏµÍ³Éú³ÉÁËÈı¸öÖé×Ó --->ÏûÖé×Ó
+							// ä»£è¡¨ç³»ç»Ÿç”Ÿæˆäº†ä¸‰ä¸ªç å­ --->æ¶ˆç å­
 							autoScan(Constant.SCAN_TYPE_2);
 						}
 						break;
-					case Constant.FLAG_4: // ´ú±íÏûÖé×Ó
+					case Constant.FLAG_4: // ä»£è¡¨æ¶ˆç å­
 						if (msg.obj != null){
-							// ÈÃÖé×ÓÍ¬Ê±ÉÁË¸
+							// è®©ç å­åŒæ—¶é—ªçƒ
 							gameView4.setIsFlag();
 						}else{
-							// »ñÈ¡·ÖÊı
+							// è·å–åˆ†æ•°
 							int score = gameService4.getPerScore();
 							if (score > 0){
-								// ÌáÊ¾µÃ·Ö
+								// æç¤ºå¾—åˆ†
 								Toast.makeText(Level4.this, "+" + score, Toast.LENGTH_SHORT).show();
-								// ÉèÖÃ·ÖÊıÀÛ¼Ó
+								// è®¾ç½®åˆ†æ•°ç´¯åŠ 
 								gameService4.setTotalScore();
 								int totalScore = gameView4.getBeadBoard().getTotalScore();
 								if(totalScore>=50){
-									Toast.makeText(Level4.this, "¹§Ï²¿ªÆôÏÂÒ»¹Ø", Toast.LENGTH_SHORT).show();
+									Toast.makeText(Level4.this, "æ­å–œå¼€å¯ä¸‹ä¸€å…³", Toast.LENGTH_SHORT).show();
 									Intent intent=new Intent(Level4.this,Level5.class);
 									startActivity(intent);
 									
@@ -180,11 +180,11 @@ public class Level4 extends Activity{
 								}
 							}
 							
-							// Ïû³ıÖé×Ó
+							// æ¶ˆé™¤ç å­
 							gameService4.clearBead();
-							// ×é¼şÖØ»æ
+							// ç»„ä»¶é‡ç»˜
 							gameView4.postInvalidate();
-							// ½âËø
+							// è§£é”
 							lock = true;
 						}
 						break;
@@ -194,13 +194,13 @@ public class Level4 extends Activity{
 		});
 		
 		/**
-		 * ¿ªÆô¶¯»­Ğ§¹ûµÄ·½·¨
-		 * @param flag ±ê·ûÊ¶
-		 * @param time Ê±³¤
+		 * å¼€å¯åŠ¨ç”»æ•ˆæœçš„æ–¹æ³•
+		 * @param flag æ ‡ç¬¦è¯†
+		 * @param time æ—¶é•¿
 		 */
 		private void startAnim(final int flag, long time){
 			if (timer != null){
-				timer.cancel(); // ¹Ø±Õ¶¨Ê±Æ÷
+				timer.cancel(); // å…³é—­å®šæ—¶å™¨
 			}
 			timer = new Timer();
 			timer.schedule(new TimerTask() {
@@ -209,38 +209,38 @@ public class Level4 extends Activity{
 					Message msg = new Message();
 					msg.what = flag;
 					switch (flag){
-						case Constant.FLAG_1: // ´ú±íÑ¡ÖĞÖé×ÓÌø¶¯
+						case Constant.FLAG_1: // ä»£è¡¨é€‰ä¸­ç å­è·³åŠ¨
 							handler.sendMessage(msg);
 							break;
-						case Constant.FLAG_2: // ´ú±í×ßÖé×Ó
+						case Constant.FLAG_2: // ä»£è¡¨èµ°ç å­
 							if (!points.isEmpty()){
-								// Ã¿´ÎÉ¾³ıµÚÒ»¸ö
+								// æ¯æ¬¡åˆ é™¤ç¬¬ä¸€ä¸ª
 								Point point = points.remove(0);
 								msg.obj = point;
 							}else{
 								msg.obj = null;
-								timer.cancel(); // È¡Ïû¶¨Ê±Æ÷
+								timer.cancel(); // å–æ¶ˆå®šæ—¶å™¨
 							}
 							handler.sendMessage(msg);
 							break;
-						case Constant.FLAG_3: // ´ú±íÒÀ´ÎÏÔÊ¾Öé×Ó
+						case Constant.FLAG_3: // ä»£è¡¨ä¾æ¬¡æ˜¾ç¤ºç å­
 							if (!displayBeads.isEmpty()){
-								// Ã¿´ÎÉ¾³ıµÚÒ»¸ö
+								// æ¯æ¬¡åˆ é™¤ç¬¬ä¸€ä¸ª
 								Bead bead = displayBeads.remove(0);
 								msg.obj = bead;
 							}else{
 								msg.obj = null;
-								timer.cancel(); // È¡Ïû¶¨Ê±Æ÷
+								timer.cancel(); // å–æ¶ˆå®šæ—¶å™¨
 							}
 							handler.sendMessage(msg);
 							break;
-						case Constant.FLAG_4: // ´ú±íÏûÖé×Ó
+						case Constant.FLAG_4: // ä»£è¡¨æ¶ˆç å­
 							if (count++ < Constant.PER_NUM){
 								msg.obj = true;
 							}else{
 								msg.obj = null;
 								count = 0;
-								timer.cancel(); // È¡Ïû¶¨Ê±Æ÷
+								timer.cancel(); // å–æ¶ˆå®šæ—¶å™¨
 							}
 							handler.sendMessage(msg);
 							break;
@@ -250,68 +250,68 @@ public class Level4 extends Activity{
 		}
 		
 		/**
-		 * ×Ô¶¯É¨ÃèÖé×Ó
-		 * @param scanType 1 : ÓÃ»§×ßÍêÖé×Ó 2. ÏµÍ³Éú³ÉÈı¸öÖé×Ó
+		 * è‡ªåŠ¨æ‰«æç å­
+		 * @param scanType 1 : ç”¨æˆ·èµ°å®Œç å­ 2. ç³»ç»Ÿç”Ÿæˆä¸‰ä¸ªç å­
 		 */
 		private void autoScan(int scanType) {
-			// ÏûÖé×Ó(ÓĞÖé×Ó¿ÉÏû£¬¾Í²»ÒªÏÔÊ¾Èı¸öÖé×Ó)
+			// æ¶ˆç å­(æœ‰ç å­å¯æ¶ˆï¼Œå°±ä¸è¦æ˜¾ç¤ºä¸‰ä¸ªç å­)
 			if (gameService4.scanBead(scanType)){
-				// ¿ªÆôÏûÖé×Ó¶¯»­Ğ§¹û
+				// å¼€å¯æ¶ˆç å­åŠ¨ç”»æ•ˆæœ
 				startAnim(Constant.FLAG_4, Constant.TIMER_4);
-				// ²¥·ÅÒôĞ§
+				// æ’­æ”¾éŸ³æ•ˆ
 				if (isSoundPlay) soundPlayer[2].start();
-			}else{// Ã»ÓĞÖé×Ó¿ÉÏû£¬¾ÍÉú³ÉÈı¸öÖé×Ó
+			}else{// æ²¡æœ‰ç å­å¯æ¶ˆï¼Œå°±ç”Ÿæˆä¸‰ä¸ªç å­
 				if (scanType == 1){
-					// ÏÔÊ¾Öé×Ó
+					// æ˜¾ç¤ºç å­
 					displayBeads = gameService4.getDisplayBeads();
 					if (displayBeads != null){
-						// ¿ªÆô¶¯»­Ğ§¹ûÒÀ´ÎÏÔÊ¾Öé×Ó
+						// å¼€å¯åŠ¨ç”»æ•ˆæœä¾æ¬¡æ˜¾ç¤ºç å­
 						startAnim(Constant.FLAG_3, Constant.TIMER_3);
 					}else{
-						// ÓÎÏ·½áÊø
+						// æ¸¸æˆç»“æŸ
 						gameOver();
-						// ½âËø
+						// è§£é”
 						lock = true;
 					}
 					
 				}else{
-					// ÅĞ¶ÏÖéÅÌÉÏÊÇ·ñÓĞ¿ÕÖé×Ó
+					// åˆ¤æ–­ç ç›˜ä¸Šæ˜¯å¦æœ‰ç©ºç å­
 					if (gameService4.getEmptyBeads().size() == 0){
-						// ÓÎÏ·½áÊø
+						// æ¸¸æˆç»“æŸ
 						gameOver();
 					}
-					// ½âËø
+					// è§£é”
 					lock = true;
 				}
 			}
 		}
 	
-		/** ÓÎÏ·½áÊø */
+		/** æ¸¸æˆç»“æŸ */
 		private void gameOver() {
-			// ÊÖ»úÕñ¶¯ (1000ºÁÃë)
+			// æ‰‹æœºæŒ¯åŠ¨ (1000æ¯«ç§’)
 			vibrator.vibrate(1000);
-			// »ñÈ¡±¾´ÎÓÎÏ·×ÜµÃ·Ö
+			// è·å–æœ¬æ¬¡æ¸¸æˆæ€»å¾—åˆ†
 			int totalScore = gameView4.getBeadBoard().getTotalScore();
-			// »ñÈ¡ÀúÊ·³É¼¨
+			// è·å–å†å²æˆç»©
 			int histScore = gameView4.getBeadBoard().getHistScore();
-			// ÌáÊ¾±¾´ÎÓÎÏ·×ÜµÃ·Ö
-			Toast.makeText(this, "±¾´ÎÓÎÏ·×ÜµÃ·Ö: " + totalScore, 500).show();
-			// ¼ÇÂ¼×îºÃ³É¼¨
+			// æç¤ºæœ¬æ¬¡æ¸¸æˆæ€»å¾—åˆ†
+			Toast.makeText(this, "æœ¬æ¬¡æ¸¸æˆæ€»å¾—åˆ†: " + totalScore, 500).show();
+			// è®°å½•æœ€å¥½æˆç»©
 			if (totalScore > histScore){
-				// ¼ÇÂ¼ÏÂÀ´(Ğ´µ½xmlÎÄ¼şÖĞ)
+				// è®°å½•ä¸‹æ¥(å†™åˆ°xmlæ–‡ä»¶ä¸­)
 				FileUtil.writeScore(this, totalScore);
-				// ÉèÖÃÀúÊ··ÖÊı
+				// è®¾ç½®å†å²åˆ†æ•°
 				gameView4.getBeadBoard().setHistScore(totalScore);
 			}
-			// ÓÎÏ·ÖØĞÂ¿ªÊ¼
+			// æ¸¸æˆé‡æ–°å¼€å§‹
 			gameService4.reset();
 			gameView4.postInvalidate();
 		}
 
-		/** ¼àÌıÊÇ²»ÊÇ°´·µ»Ø¼ü */
+		/** ç›‘å¬æ˜¯ä¸æ˜¯æŒ‰è¿”å›é”® */
 		@Override
 		public void onBackPressed() {
-			DialogUtil.createDialog(this, "ÄúÈ·¶¨ÒªÍË³öÓÎÏ·Âğ?").show();
+			DialogUtil.createDialog(this, "æ‚¨ç¡®å®šè¦é€€å‡ºæ¸¸æˆå—?").show();
 			
 			
 		}
@@ -325,32 +325,32 @@ public class Level4 extends Activity{
 		@Override
 		public boolean onOptionsItemSelected(MenuItem item) {
 			switch (item.getItemId()){
-				case R.id.returnMenu: // ·µ»Ø²Ëµ¥
+				case R.id.returnMenu: // è¿”å›èœå•
 					Intent intent1=new Intent(Level4.this,MainMenu.class);
 					startActivity(intent1);
 					break;
-				case R.id.nextLevel: // Ñ¡¹Ø
+				case R.id.nextLevel: // é€‰å…³
 					Intent intent2=new Intent(Level4.this,selectLevel.class);
 					startActivity(intent2);
 					break;
-				case R.id.menu_close: // ÓÎÏ·ÍË³ö
-					DialogUtil.createDialog(this, "ÄúÈ·¶¨ÒªÍË³öÓÎÏ·Âğ?").show();
+				case R.id.menu_close: // æ¸¸æˆé€€å‡º
+					DialogUtil.createDialog(this, "æ‚¨ç¡®å®šè¦é€€å‡ºæ¸¸æˆå—?").show();
 					break;
 			}
 			return true;
 		}
-		/** µ±Ç°´°¿Ú²»´¦ÓÚ»îÔ¾×´Ì¬ */
+		/** å½“å‰çª—å£ä¸å¤„äºæ´»è·ƒçŠ¶æ€ */
 		@Override
 		protected void onPause() {
 			super.onPause();
 		}
-		/** µ±Ç°´°¿ÚÖØĞÂ´¦ÓÚ»îÔ¾×´Ì¬ */
+		/** å½“å‰çª—å£é‡æ–°å¤„äºæ´»è·ƒçŠ¶æ€ */
 		@Override
 		protected void onResume() {
 			
 			super.onResume();
 		}
-		/** µ±Ç°ActivityÏû»ÙÊ± */
+		/** å½“å‰Activityæ¶ˆæ¯æ—¶ */
 		@Override
 		protected void onDestroy() {
 			for (MediaPlayer sound : soundPlayer){

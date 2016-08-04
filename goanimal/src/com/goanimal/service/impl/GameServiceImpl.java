@@ -16,51 +16,51 @@ import android.graphics.Point;
 
 
 /**
- * ÓÎÏ·ÒµÎñ½Ó¿ÚÊµÏÖÀà
+ * æ¸¸æˆä¸šåŠ¡æ¥å£å®ç°ç±»
  * @version 1.0
  */
 public  class GameServiceImpl implements GameService {
-	/** ActivityÉÏÏÂÎÄ */
+	/** Activityä¸Šä¸‹æ–‡ */
 	private Context context;
-	/** ÖéÅÌÊµÌå */
+	/** ç ç›˜å®ä½“ */
 	private BeadBoard beadBoard;
-	/** ¶¨ÒåËæ»ú¶ÔÏó */
+	/** å®šä¹‰éšæœºå¯¹è±¡ */
 	private Random random = new Random();
-	/** ¶¨ÒåÏÂÒ»ÂÖÒªÏÔÊ¾µÄÈı¸öÖé×Ó */
+	/** å®šä¹‰ä¸‹ä¸€è½®è¦æ˜¾ç¤ºçš„ä¸‰ä¸ªç å­ */
 	private List<Bead> preparedBeads = new ArrayList<Bead>();
-	/** ¶¨Òå»º´æ·ÖÊıµÄÊôĞÔ */
+	/** å®šä¹‰ç¼“å­˜åˆ†æ•°çš„å±æ€§ */
 	private int perScore = 0;
-	/** ¶¨Òå¿ÉÏûÖé×ÓµÄµãµÄ¼¯ºÏ */
+	/** å®šä¹‰å¯æ¶ˆç å­çš„ç‚¹çš„é›†åˆ */
 	private List<Point> linkPoints = new ArrayList<Point>();
 	
 	public GameServiceImpl(Context context, BeadBoard beadBoard) {
 		this.context = context;
 		this.beadBoard = beadBoard;
-		// µ÷ÓÃ³õÊ¼»¯µÄ·½·¨,³õÊ¼»¯ÖéÅÌÉÏµÄÎå¸öÖé×Ó
+		// è°ƒç”¨åˆå§‹åŒ–çš„æ–¹æ³•,åˆå§‹åŒ–ç ç›˜ä¸Šçš„äº”ä¸ªç å­
 		this.init();
 	}
 	
 	
-	/** »ñÈ¡ÏÂÒ»ÂÖÒªÏÔÊ¾µÄÈı¸öÖé×Ó */
+	/** è·å–ä¸‹ä¸€è½®è¦æ˜¾ç¤ºçš„ä¸‰ä¸ªç å­ */
 	public List<Bead> getPreparedBeads(){
 		return preparedBeads;
 	}
-	/** Éú³ÉÏÂÒ»ÂÖÒªÏÔÊ¾µÄÈı¸öÖé×Ó */
+	/** ç”Ÿæˆä¸‹ä¸€è½®è¦æ˜¾ç¤ºçš„ä¸‰ä¸ªç å­ */
 	private void setPreparedBeads(){
-		preparedBeads.clear(); // Çå¿Õ
+		preparedBeads.clear(); // æ¸…ç©º
 		for (int i = 0; i < Constant.PER_NUM; i++){
 			Bead bead = BitmapUtil.randomBead(context, beadBoard.scale);
 			preparedBeads.add(bead);
 		}
 	}
 	/**
-	 * ¸ù¾İÓÃ»§µã»÷µÄ×ø±ê»ñÈ¡Ïà¶ÔÓ¦µÄÖé×Ó
-	 * @param x ×ø±ê
-	 * @param y ×ø±ê
+	 * æ ¹æ®ç”¨æˆ·ç‚¹å‡»çš„åæ ‡è·å–ç›¸å¯¹åº”çš„ç å­
+	 * @param x åæ ‡
+	 * @param y åæ ‡
 	 * @return Bead
 	 */
 	public Bead getSelectedBead(float x, float y){
-		// ¶Ôy×ø±ê½øĞĞÓĞĞ§ĞÔµÄÅĞ¶Ï
+		// å¯¹yåæ ‡è¿›è¡Œæœ‰æ•ˆæ€§çš„åˆ¤æ–­
 		if (y < beadBoard.topImage.getHeight() + Constant.TOP_BUTTOM_SPACE * beadBoard.scale){
 			return null;
 		}
@@ -68,12 +68,12 @@ public  class GameServiceImpl implements GameService {
 				- Constant.TOP_BUTTOM_SPACE * beadBoard.scale)){
 			return null;
 		}
-		// °Ñx¡¢y×ø±ê×ª»¯³É¶şÎ¬Êı×éÖĞµÄiÓëj
+		// æŠŠxã€yåæ ‡è½¬åŒ–æˆäºŒç»´æ•°ç»„ä¸­çš„iä¸j
 		int i = Float.valueOf((x - Constant.LEFT_RIGHT_SPACE * beadBoard.scale) / beadBoard.gridWidth).intValue();
 		int j = Float.valueOf((y - beadBoard.topImage.getHeight() 
 				- Constant.TOP_BUTTOM_SPACE * beadBoard.scale) / beadBoard.gridHeight).intValue();
 		
-		// ¶ÔiµÄÓĞĞ§ĞÔ·ÅËÉ
+		// å¯¹içš„æœ‰æ•ˆæ€§æ”¾æ¾
 		if (i >= 9) i = Constant.BEAD_SIZE - 1;
 		
 		if (i >= 0 && i < Constant.BEAD_SIZE && j >= 0 && j < Constant.BEAD_SIZE){
@@ -83,10 +83,10 @@ public  class GameServiceImpl implements GameService {
 	}
 	
 	/**
-	 * »ñÈ¡Á½¸öÖé×Ó¿É×ßµÄÏßÂ·
-	 * @param selectedBead Ñ¡ÖĞµÄÖé×Ó
-	 * @param targetBead Ä¿±êµÄÖé×Ó
-	 * @return ¿É×ßÏßÂ·µãµÄ¼¯ºÏ
+	 * è·å–ä¸¤ä¸ªç å­å¯èµ°çš„çº¿è·¯
+	 * @param selectedBead é€‰ä¸­çš„ç å­
+	 * @param targetBead ç›®æ ‡çš„ç å­
+	 * @return å¯èµ°çº¿è·¯ç‚¹çš„é›†åˆ
 	 */
 	public List<Point> getPath(Bead selectedBead, Bead targetBead){
 		if (selectedBead == null || targetBead == null){
@@ -94,17 +94,17 @@ public  class GameServiceImpl implements GameService {
 		}
 		Point from = new Point(selectedBead.x, selectedBead.y);
 		Point to = new Point(targetBead.x, targetBead.y);
-		// ´ÓÆğµãµ½ÖÕµã
+		// ä»èµ·ç‚¹åˆ°ç»ˆç‚¹
 		List<Point> points = PathArithmetic.getInstance().getPath(from, to, beadBoard.beads);
 		if (points.size() <= 5){
-			// ·´×ª¼¯ºÏÖĞµÄÔªËØ
+			// åè½¬é›†åˆä¸­çš„å…ƒç´ 
 			Collections.reverse(points);
 			return points;
 		}else{
-			// ´ÓÖÕµãµ½Æğµã
+			// ä»ç»ˆç‚¹åˆ°èµ·ç‚¹
 			List<Point> tempPoints = PathArithmetic.getInstance().getPath(to, from, beadBoard.beads);
 			if (points.size() < tempPoints.size()){
-				// ·´×ª¼¯ºÏÖĞµÄÔªËØ
+				// åè½¬é›†åˆä¸­çš„å…ƒç´ 
 				Collections.reverse(points);
 				return points;
 			}else{
@@ -115,15 +115,15 @@ public  class GameServiceImpl implements GameService {
 		}
 	}
 	/**
-	 * »ñÈ¡ÒªÏÔÊ¾µÄÈı¸öÖé×Ó
-	 * @return Öé×Ó¼¯ºÏ
+	 * è·å–è¦æ˜¾ç¤ºçš„ä¸‰ä¸ªç å­
+	 * @return ç å­é›†åˆ
 	 */
 	public List<Bead> getDisplayBeads(){
-		// Ô¤¼ÓÔØµÄÈı¸öÖé×Ó (Ğ¡ÖéÅÌÉÏµÄÈı¸öÖé×Ó)
+		// é¢„åŠ è½½çš„ä¸‰ä¸ªç å­ (å°ç ç›˜ä¸Šçš„ä¸‰ä¸ªç å­)
 		List<Bead> preparedBeads = this.getPreparedBeads();
-		// »ñÈ¡ÖéÅÌÉÏËùÓĞµÄ¿ÕÖé×Ó
+		// è·å–ç ç›˜ä¸Šæ‰€æœ‰çš„ç©ºç å­
 		List<Bead> emptyBeads = this.getEmptyBeads();
-		// ÅĞ¶ÏÖéÅÌÉÏ¿ÕÖé×ÓµÄÊıÁ¿ (²»ÄÜĞ¡ÓÚ3)
+		// åˆ¤æ–­ç ç›˜ä¸Šç©ºç å­çš„æ•°é‡ (ä¸èƒ½å°äº3)
 		if (emptyBeads.size() < 3){
 			return null;
 		}
@@ -131,31 +131,31 @@ public  class GameServiceImpl implements GameService {
 		for (Bead preBead : preparedBeads){
 			int cursor = random.nextInt(emptyBeads.size());
 			Bead bead = emptyBeads.remove(cursor);
-			// ×éºÏÁ½¸öÖé×Ó
+			// ç»„åˆä¸¤ä¸ªç å­
 			preBead.x = bead.x;
 			preBead.y = bead.y;
 			lists.add(preBead);
 		}
-		// ÖØĞÂ¼ÓÔØÈı¸öÖé×Ó(ÏÂÒ»ÂÖ)
+		// é‡æ–°åŠ è½½ä¸‰ä¸ªç å­(ä¸‹ä¸€è½®)
 		this.setPreparedBeads();
 		return lists;
 	}
 	/**
-	 * É¨ÃèÖé×ÓµÄ·½·¨
+	 * æ‰«æç å­çš„æ–¹æ³•
 	 * @return
 	 */
 	public boolean scanBead(int scanType){
-		linkPoints.clear(); // Çå¿Õ¼¯ºÏ
-		perScore = 0; // Çå¿Õ·ÖÊı
-		// ËÄ¸ö·½Î»µÄÉ¨Ãè
+		linkPoints.clear(); // æ¸…ç©ºé›†åˆ
+		perScore = 0; // æ¸…ç©ºåˆ†æ•°
+		// å››ä¸ªæ–¹ä½çš„æ‰«æ
 		List<List<Point>> lists = ScanArithmetic.scan(beadBoard.beads);
-		// ÅĞ¶ÏÊÇ·ñÓĞÖé×Ó¿ÉÏû
+		// åˆ¤æ–­æ˜¯å¦æœ‰ç å­å¯æ¶ˆ
 		if (lists.isEmpty()){
 			return false;
 		}
-		// Í³¼ÆÒ»ÏÂÒ»¹²ÓĞ¶àÉÙ¸öÖé×Ó¿ÉÒÔÏû
+		// ç»Ÿè®¡ä¸€ä¸‹ä¸€å…±æœ‰å¤šå°‘ä¸ªç å­å¯ä»¥æ¶ˆ
 		int count = 0;
-		// ¼ÇÂ¼¿ÉÏûÖé×ÓµÄµã
+		// è®°å½•å¯æ¶ˆç å­çš„ç‚¹
 		for (List<Point> points : lists){
 			for (Point point : points){
 				if (!linkPoints.contains(point)){
@@ -165,28 +165,28 @@ public  class GameServiceImpl implements GameService {
 			count += points.size();
 		}
 		
-		// ¼ÆËã³ö·ÖÊı (Ò»¸öÖé×Ó2·Ö) ÏûµÄ·ÖÊı * ·½Î»
+		// è®¡ç®—å‡ºåˆ†æ•° (ä¸€ä¸ªç å­2åˆ†) æ¶ˆçš„åˆ†æ•° * æ–¹ä½
 		if (scanType == Constant.SCAN_TYPE_1){
-			// ÓÃ»§×ßÖé×ÓºóÏûµÃ¾ÍËã·ÖÊı
+			// ç”¨æˆ·èµ°ç å­åæ¶ˆå¾—å°±ç®—åˆ†æ•°
 			perScore = count * 2 * lists.size();
 		}
 		return true;
 	}
 	
-	/** »ñÈ¡·ÖÊı(Ã¿´ÎµÄµÃ·Ö) */
+	/** è·å–åˆ†æ•°(æ¯æ¬¡çš„å¾—åˆ†) */
 	public int getPerScore(){
 		return this.perScore;
 	}
-	/** »ñÈ¡¿ÉÏûÖé×ÓµÄÁ¬½Óµã */
+	/** è·å–å¯æ¶ˆç å­çš„è¿æ¥ç‚¹ */
 	public List<Point> getLinkPoints(){
 		return this.linkPoints;
 	}
-	/** ÉèÖÃÓÎÏ·ÀÛ¼Æ·ÖÊı */
+	/** è®¾ç½®æ¸¸æˆç´¯è®¡åˆ†æ•° */
 	public void setTotalScore(){
 		beadBoard.setTotalScore(this.perScore);
 	}
 	/**
-	 * Çå³ı¿ÉÏûÖé×Ó
+	 * æ¸…é™¤å¯æ¶ˆç å­
 	 */
 	public void clearBead(){
 		for (Point p : linkPoints){
@@ -194,13 +194,13 @@ public  class GameServiceImpl implements GameService {
 		}
 		linkPoints.clear();
 	}
-	/** »ñÈ¡ÖéÅÌÉÏËùÓĞµÄ¿ÕÖé×Ó */
+	/** è·å–ç ç›˜ä¸Šæ‰€æœ‰çš„ç©ºç å­ */
 	public List<Bead> getEmptyBeads(){
 		List<Bead> emptyBeads = new ArrayList<Bead>();
 		for (int i = 0; i < beadBoard.beads.length; i++){
 			for (int j = 0; j < beadBoard.beads.length; j++){
 				Bead bead = beadBoard.beads[i][j];
-				// Ö»ÒªÖé×ÓÊµÌåÃ»ÓĞÎ»Í¼,ÄÇ¾ÍÊÇÒ»¸ö¿ÕÖé
+				// åªè¦ç å­å®ä½“æ²¡æœ‰ä½å›¾,é‚£å°±æ˜¯ä¸€ä¸ªç©ºç 
 				if (bead.getBitmap() == null){
 					emptyBeads.add(bead);
 				}
@@ -209,7 +209,7 @@ public  class GameServiceImpl implements GameService {
 		return emptyBeads;
 	}
 	/**
-	 * ÓÎÏ·ÖØĞÂ¿ªÊ¼µÄ·½·¨
+	 * æ¸¸æˆé‡æ–°å¼€å§‹çš„æ–¹æ³•
 	 */
 	public void reset(){
 		for (int i = 0; i < beadBoard.beads.length; i++){
@@ -225,20 +225,20 @@ public  class GameServiceImpl implements GameService {
 	
 
 
-	/** ³õÊ¼»¯µÄ·½·¨ */
+	/** åˆå§‹åŒ–çš„æ–¹æ³• */
 	private void init(){
-		// »ñÈ¡ËùÓĞµÄ¿ÕÖé×Ó
+		// è·å–æ‰€æœ‰çš„ç©ºç å­
 		List<Bead> emptyBeads = this.getEmptyBeads();
-		// ³õÊ¼»¯Îå¸öÖé×Ó
+		// åˆå§‹åŒ–äº”ä¸ªç å­
 		for (int i = 0; i < Constant.INIT_NUM; i++){
 			Bead temp = BitmapUtil.randomBead(context, beadBoard.scale);
-			// ÔÚÖéÅÌÉÏËùÓĞ¿ÕÖé×ÓµÄµØ·½Ëæ»ú»ñÈ¡Ò»¸öÖé×Ó
+			// åœ¨ç ç›˜ä¸Šæ‰€æœ‰ç©ºç å­çš„åœ°æ–¹éšæœºè·å–ä¸€ä¸ªç å­
 			int cursor = random.nextInt(emptyBeads.size());
 			Bead bead = emptyBeads.remove(cursor);
 			bead.setBitmap(temp.getBitmap());
 			bead.color = temp.color;
 		}
-		// Éú³ÉÏÂÒ»ÂÖÒªÏÔÊ¾µÄÈı¸öÖé×Ó
+		// ç”Ÿæˆä¸‹ä¸€è½®è¦æ˜¾ç¤ºçš„ä¸‰ä¸ªç å­
 		this.setPreparedBeads();
 	}
 }

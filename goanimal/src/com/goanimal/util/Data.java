@@ -6,11 +6,11 @@ package com.goanimal.util;
 import android.app.Application;
 
 /**
- * @author 遥指天下
+ * @author 閬ユ寚澶╀笅
  *
  */
 public class Data extends Application{
-	private Boolean isSound=false;//判断音效
+	private Boolean isSound=false;//鍒ゆ柇闊虫晥
 	public Boolean get_isSound(){
 		return isSound;
 	}

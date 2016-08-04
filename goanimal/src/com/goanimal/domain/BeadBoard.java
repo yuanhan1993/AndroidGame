@@ -10,62 +10,62 @@ import android.graphics.Matrix;
 import android.view.WindowManager;
 
 /**
- * ÖéÅÌÊµÌå
+ * ç ç›˜å®ä½“
  * @version 1.0
  */
 public class BeadBoard {
-	// Íø¸ñ¿í¶È
+	// ç½‘æ ¼å®½åº¦
 	public float gridWidth;
-	// Íø¸ñµÄ¸ß¶È
+	// ç½‘æ ¼çš„é«˜åº¦
 	public float gridHeight;
-	// ÖéÅÌµÄ±³¾°Î»Í¼
+	// ç ç›˜çš„èƒŒæ™¯ä½å›¾
 	public Bitmap boardImage;
-	// ÖéÅÌÍ¼Æ¬ÓëÊÖ»úÖ®¼äµÄËõ·ÅÂÊ
+	// ç ç›˜å›¾ç‰‡ä¸æ‰‹æœºä¹‹é—´çš„ç¼©æ”¾ç‡
     public float scale;
-    // Öé×Ó¶şÎ¬Êı×é£¨ÖéÅÌÉÏËùÓĞÖé×Ó)
+    // ç å­äºŒç»´æ•°ç»„ï¼ˆç ç›˜ä¸Šæ‰€æœ‰ç å­)
     public Bead[][] beads = new Bead[Constant.BEAD_SIZE][Constant.BEAD_SIZE];
-    // Ğ¡ÖéÅÌ(·ÅÏÂÒ»ÂÖÒªÏÔÊ¾µÄÈı¸öÖé×Ó)
+    // å°ç ç›˜(æ”¾ä¸‹ä¸€è½®è¦æ˜¾ç¤ºçš„ä¸‰ä¸ªç å­)
     public Bitmap topImage;
-	// ÀúÊ··ÖÊı
+	// å†å²åˆ†æ•°
     private int histScore;
-    // ±¾´ÎÓÎÏ·µÄ×Ü·ÖÊı
+    // æœ¬æ¬¡æ¸¸æˆçš„æ€»åˆ†æ•°
     private int totalScore;
     public BeadBoard(Context context){
-    	// Í¨¹ıContext»ñÈ¡´°¿Ú¹ÜÀíÆ÷
+    	// é€šè¿‡Contextè·å–çª—å£ç®¡ç†å™¨
     	WindowManager wm = (WindowManager)context.getSystemService(Context.WINDOW_SERVICE);
-    	// »ñÈ¡ÊÖ»úµÄÆÁÄ»µÄ¿í¶È
+    	// è·å–æ‰‹æœºçš„å±å¹•çš„å®½åº¦
     	@SuppressWarnings("deprecation")
 		int width = wm.getDefaultDisplay().getWidth();
-    	// °ÑÖéÅÌÍ¼Æ¬×ª»¯³ÉÎ»Í¼
+    	// æŠŠç ç›˜å›¾ç‰‡è½¬åŒ–æˆä½å›¾
     	
     	Bitmap source =BitmapUtil.getBitmap(context, R.drawable.board3);
     	
-    	// ¼ÆËã³öÖéÅÌÍ¼Æ¬ÓëÊÖ»úÖ®¼äµÄËõ·Å±ÈÂÊ
+    	// è®¡ç®—å‡ºç ç›˜å›¾ç‰‡ä¸æ‰‹æœºä¹‹é—´çš„ç¼©æ”¾æ¯”ç‡
     	this.scale = Float.valueOf(width) / Float.valueOf(source.getWidth());
     	
-    	// ¶ÔÖéÅÌÍ¼Æ¬½øĞĞËõ·Å(°´±ÈÂÊ)
+    	// å¯¹ç ç›˜å›¾ç‰‡è¿›è¡Œç¼©æ”¾(æŒ‰æ¯”ç‡)
     	Matrix m = new Matrix();
-    	// ÉèÖÃËõ·Å±ÈÂÊ
+    	// è®¾ç½®ç¼©æ”¾æ¯”ç‡
     	m.setScale(this.scale, this.scale);
-    	// µÃµ½Ëõ·Å¹ıºóµÄÖéÅÌµÄÎ»Í¼
+    	// å¾—åˆ°ç¼©æ”¾è¿‡åçš„ç ç›˜çš„ä½å›¾
     	this.boardImage = Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(), m, true);
     	
-    	// ¼ÆËãÍø¸ñµÄ¿í¶È
+    	// è®¡ç®—ç½‘æ ¼çš„å®½åº¦
     	this.gridWidth = (Float.valueOf(source.getWidth() - Constant.LEFT_RIGHT_SPACE * 2)  / Constant.BEAD_SIZE) * this.scale;
-    	// ¼ÆËãÍø¸ñµÄ¸ß¶È
+    	// è®¡ç®—ç½‘æ ¼çš„é«˜åº¦
     	this.gridHeight = (Float.valueOf(source.getHeight() - Constant.TOP_BUTTOM_SPACE * 2) / Constant.BEAD_SIZE) * this.scale;
     	
-    	// »ñÈ¡Ğ¡ÖéÅÌ¶ÔÓ¦µÄÎ»Í¼
+    	// è·å–å°ç ç›˜å¯¹åº”çš„ä½å›¾
     	source = BitmapUtil.getBitmap(context, R.drawable.titile2);
-    	// µÃµ½Ëõ·Å¹ıºóµÄĞ¡ÖéÅÌµÄÎ»Í¼
+    	// å¾—åˆ°ç¼©æ”¾è¿‡åçš„å°ç ç›˜çš„ä½å›¾
     	m.setScale(this.scale * Constant.MATRIX_SCALE , this.scale * Constant.MATRIX_SCALE);
     	this.topImage = Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(), m, true);
-    	// µ÷ÓÃ³õÊ¼·½·¨(³õÊ¼»¯ÖéÅÌÉÏËùÓĞÖé×Ó)
+    	// è°ƒç”¨åˆå§‹æ–¹æ³•(åˆå§‹åŒ–ç ç›˜ä¸Šæ‰€æœ‰ç å­)
     	
     	this.init();
     }
     
-    /** ³õÊ¼»¯ÖéÅÌÉÏµÄËùÓĞµÄÖé×Ó */
+    /** åˆå§‹åŒ–ç ç›˜ä¸Šçš„æ‰€æœ‰çš„ç å­ */
     private void init(){
     	for (int i = 0; i < beads.length; i++){
     		for (int j = 0; j < beads.length; j++){

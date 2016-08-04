@@ -3,23 +3,23 @@ package com.goanimal.domain;
 import android.graphics.Bitmap;
 
 /**
- * Öé×ÓÊµÌå
+ * ç å­å®ä½“
  * @version 1.0
  */
 public class Bead {
 	
-	// ÔÚÖéÅÌ¶şÎ¬Êı×éÖĞµÄx×ø±ê
+	// åœ¨ç ç›˜äºŒç»´æ•°ç»„ä¸­çš„xåæ ‡
 	public int x;
-	// ÔÚÖéÅÌ¶şÎ¬Êı×éÖĞµÄy×ø±ê
+	// åœ¨ç ç›˜äºŒç»´æ•°ç»„ä¸­çš„yåæ ‡
 	public int y;
-	// Öé×ÓµÄÑÕÉ« (Ä¬ÈÏµÄÑÕÉ«)
+	// ç å­çš„é¢œè‰² (é»˜è®¤çš„é¢œè‰²)
 	public String color = "Z";
-	// Öé×ÓµÄÎ»Í¼
+	// ç å­çš„ä½å›¾
 	private Bitmap bitmap;
 	
 	@Override
 	public boolean equals(Object o) {
-		// ÅĞ¶ÏÁ½¸öÖé×ÓÏàµÈ(Ö»ÒªÁ½¸öÖé×ÓµÄx¡¢y¶¼ÏàµÈ¾Í´ú±íÊÇÍ¬Ò»¸öÖé×Ó)
+		// åˆ¤æ–­ä¸¤ä¸ªç å­ç›¸ç­‰(åªè¦ä¸¤ä¸ªç å­çš„xã€yéƒ½ç›¸ç­‰å°±ä»£è¡¨æ˜¯åŒä¸€ä¸ªç å­)
 		if (o == null || !(o instanceof Bead)){
 			return false;
 		}

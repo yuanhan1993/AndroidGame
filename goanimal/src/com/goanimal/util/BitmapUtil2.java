@@ -10,45 +10,53 @@ import android.graphics.Matrix;
 import com.goanimal.domain.Bead;
 
 /**
- * ²Ù×÷Î»Í¼µÄ¹¤¾ßÀà
+ * æ“ä½œä½å›¾çš„å·¥å…·ç±»
  *
  * @version 1.0
  */
 public class BitmapUtil2 {
-	// ¶¨ÒåËæ»ú¶ÔÏó
+	// å®šä¹‰éšæœºå¯¹è±¡
 	private static Random random = new Random();
-	// ¶¨ÒåMatrix¾ØÕóÀà
+	// å®šä¹‰MatrixçŸ©é˜µç±»
 	private static Matrix m = new Matrix();
+
 	/**
-	 * ¸ù¾İ×ÊÔ´ÎÄ¼ş»ñÈ¡Î»Í¼
-	 * @param context µ±Ç°µÄActivity (ÉÏÏÂÎÄ)
-	 * @param resId ×ÊÔ´ÎÄ¼şµÄid
-	 * @return Î»Í¼¶ÔÏó
+	 * æ ¹æ®èµ„æºæ–‡ä»¶è·å–ä½å›¾
+	 * 
+	 * @param context
+	 *            å½“å‰çš„Activity (ä¸Šä¸‹æ–‡)
+	 * @param resId
+	 *            èµ„æºæ–‡ä»¶çš„id
+	 * @return ä½å›¾å¯¹è±¡
 	 */
-	public static Bitmap getBitmap(Context context, int resId){
+	public static Bitmap getBitmap(Context context, int resId) {
 		return BitmapFactory.decodeResource(context.getResources(), resId);
 	}
+
 	/**
-	 * Ëæ»úÉú³ÉÒ»¸öÖé×Ó
-	 * @param context µ±Ç°µÄActivity (ÉÏÏÂÎÄ)
-	 * @param scale Ëõ·Å±ÈÂÊ
-	 * @return Öé×Ó
+	 * éšæœºç”Ÿæˆä¸€ä¸ªç å­
+	 * 
+	 * @param context
+	 *            å½“å‰çš„Activity (ä¸Šä¸‹æ–‡)
+	 * @param scale
+	 *            ç¼©æ”¾æ¯”ç‡
+	 * @return ç å­
 	 */
 	public static Bead randomBead(Context context, float scale) {
-		// Ëæ»ú»ñÈ¡Ò»¸öÖé×ÓÍ¼Æ¬×ÊÔ´id (0-5)
+		// éšæœºè·å–ä¸€ä¸ªç å­å›¾ç‰‡èµ„æºid (0-5)
 		int cursor;
-		
-			cursor=random.nextInt(Constant.BEAD_ICONS2.length);
-			// µÃµ½Î»Í¼
-			Bitmap source = getBitmap(context, Constant.BEAD_ICONS2[cursor]);
-			// ¶ÔÖé×Ó°´±ÈÀıËõ·Å
-			m.setScale(scale, scale);
-			// °´±ÈÂÊËõ·Å¹ıºóµÄÎ»Í¼
-			source = Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(), m, true);
-			Bead bead = new Bead();
-			bead.setBitmap(source);
-			bead.color = Constant.BEAD_COLORS[cursor];
-			return bead;
-		
+
+		cursor = random.nextInt(Constant.BEAD_ICONS2.length);
+		// å¾—åˆ°ä½å›¾
+		Bitmap source = getBitmap(context, Constant.BEAD_ICONS2[cursor]);
+		// å¯¹ç å­æŒ‰æ¯”ä¾‹ç¼©æ”¾
+		m.setScale(scale, scale);
+		// æŒ‰æ¯”ç‡ç¼©æ”¾è¿‡åçš„ä½å›¾
+		source = Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(), m, true);
+		Bead bead = new Bead();
+		bead.setBitmap(source);
+		bead.color = Constant.BEAD_COLORS[cursor];
+		return bead;
+
 	}
 }

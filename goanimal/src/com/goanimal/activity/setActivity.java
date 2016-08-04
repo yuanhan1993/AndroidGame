@@ -18,7 +18,7 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 public class setActivity extends Activity{
 @Override
 protected void onCreate(Bundle savedInstanceState) {
-	// ÉèÖÃµÄ½çÃæ
+	// è®¾ç½®çš„ç•Œé¢
 	super.onCreate(savedInstanceState);
 	AppManager.getAppManager().addActivity(this);
 	setContentView(R.layout.dialog);
@@ -29,7 +29,7 @@ protected void onCreate(Bundle savedInstanceState) {
 		public void onCheckedChanged(RadioGroup group, int checkedId) {
 			RadioButton r1=(RadioButton)findViewById(checkedId);
 			r1.getText();
-			if(r1.getText().equals("ÊÇ")){
+			if(r1.getText().equals("æ˜¯")){
 		     Intent intent=new Intent(setActivity.this,MusicService.class);
 			startService(intent);
 			
@@ -54,7 +54,7 @@ protected void onCreate(Bundle savedInstanceState) {
 			Data isSoundPlay=(Data) getApplicationContext();
 			
 			
-		    if(r2.getText().equals("ÊÇ")){
+		    if(r2.getText().equals("æ˜¯")){
 		    isSoundPlay.set_isSound(true);
 		    System.out.print(isSoundPlay.get_isSound());
 		}

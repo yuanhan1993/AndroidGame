@@ -9,20 +9,20 @@ import com.goanimal.util.Constant;
 import android.graphics.Point;
 
 /**
- * Í·ÏñÉ¨ÃèµÄ¹¤¾ßÀà(ºáÏò¡¢¼áÏò¡¢×óĞ±¡¢ÓÒĞ±)
+ * å¤´åƒæ‰«æçš„å·¥å…·ç±»(æ¨ªå‘ã€åšå‘ã€å·¦æ–œã€å³æ–œ)
  * @version 1.0
  */
 public class ScanArithmetic {
 	
-	/** ¶¨ÒåÉ¨ÃèµÄ×îÖÕ½á¹û */
+	/** å®šä¹‰æ‰«æçš„æœ€ç»ˆç»“æœ */
 	private static List<List<Point>> lists = new ArrayList<List<Point>>();
 	/**
-	 * Öé×ÓËÄ¸ö·½Î»É¨Ãè·½·¨
+	 * ç å­å››ä¸ªæ–¹ä½æ‰«ææ–¹æ³•
 	 * @param beads
 	 * @return
 	 */
 	public static List<List<Point>> scan(Bead[][] beads) {
-		lists.clear(); // Çå¿Õ¼¯ºÏ
+		lists.clear(); // æ¸…ç©ºé›†åˆ
 		List<Point> points_1 = horizontalScan(beads);
 		List<Point> points_2 = verticalScan(beads);
 		List<Point> points_3 = leftSlantingScan(beads);
@@ -43,27 +43,27 @@ public class ScanArithmetic {
 	}
 	
 	/**
-	 * ºáÏòÉ¨Ãè
+	 * æ¨ªå‘æ‰«æ
 	 * @param beads
 	 * @return
 	 */
 	private static List<Point> horizontalScan(Bead[][] beads){
 		for (int i = 0; i < beads.length; i++){
-			// ¶¨Òå±äÁ¿À´Æ´½ÓÕâÒ»ĞĞÖĞÖé×ÓµÄÑÕÉ«
+			// å®šä¹‰å˜é‡æ¥æ‹¼æ¥è¿™ä¸€è¡Œä¸­ç å­çš„é¢œè‰²
 			StringBuilder color = new StringBuilder();
-			// ¶¨Òå±äÁ¿À´»º´æÕâÒ»ĞĞÖĞµÄÖé×Ó¶ÔÓ¦µÄµãµÄ¼¯ºÏ
+			// å®šä¹‰å˜é‡æ¥ç¼“å­˜è¿™ä¸€è¡Œä¸­çš„ç å­å¯¹åº”çš„ç‚¹çš„é›†åˆ
 			List<Point> points = new ArrayList<Point>();
-			// É¨ÃèÒ»ĞĞ
+			// æ‰«æä¸€è¡Œ
 			for (int j = 0; j < beads.length; j++){
 				Bead bead = beads[j][i];
 				color.append(bead.color);
 				points.add(new Point(j, i));
 			}
-			// ÅĞ¶ÏÊÇ·ñÓĞÎå¸ö»òÎå¸öÒÔÉÏµÄÍ¬É«Öé×ÓÁ¬ÔÚÒ»Æğ
+			// åˆ¤æ–­æ˜¯å¦æœ‰äº”ä¸ªæˆ–äº”ä¸ªä»¥ä¸Šçš„åŒè‰²ç å­è¿åœ¨ä¸€èµ·
 			for (String str : Constant.FINAL_COLORS){
-				// ÓĞÎå¸öÍ¬É«µÄÖé×ÓÁ¬ÔÚÒ»Æğ
+				// æœ‰äº”ä¸ªåŒè‰²çš„ç å­è¿åœ¨ä¸€èµ·
 				if (color.toString().contains(str)){
-					// »ñÈ¡Á¬ÔÚÒ»ÆğµÄÎå¸ö»òÎå¸öÒÔÉÏµÄÖé×Ó¶ÔÓ¦µÄµã
+					// è·å–è¿åœ¨ä¸€èµ·çš„äº”ä¸ªæˆ–äº”ä¸ªä»¥ä¸Šçš„ç å­å¯¹åº”çš„ç‚¹
 					int begin = color.indexOf(str);
 					int end = color.lastIndexOf(str) + str.length();
 					List<Point> temps = new ArrayList<Point>();
@@ -77,27 +77,27 @@ public class ScanArithmetic {
 		return null;
 	}
 	/**
-	 * ×İÏòÉ¨Ãè
+	 * çºµå‘æ‰«æ
 	 * @param beads
 	 * @return
 	 */
 	private static List<Point> verticalScan(Bead[][] beads){
 		for (int i = 0; i < beads.length; i++){
-			// ¶¨Òå±äÁ¿À´Æ´½ÓÕâÒ»ĞĞÖĞÖé×ÓµÄÑÕÉ«
+			// å®šä¹‰å˜é‡æ¥æ‹¼æ¥è¿™ä¸€è¡Œä¸­ç å­çš„é¢œè‰²
 			StringBuilder color = new StringBuilder();
-			// ¶¨Òå±äÁ¿À´»º´æÕâÒ»ĞĞÖĞµÄÖé×Ó¶ÔÓ¦µÄµãµÄ¼¯ºÏ
+			// å®šä¹‰å˜é‡æ¥ç¼“å­˜è¿™ä¸€è¡Œä¸­çš„ç å­å¯¹åº”çš„ç‚¹çš„é›†åˆ
 			List<Point> points = new ArrayList<Point>();
-			// É¨ÃèÒ»ĞĞ
+			// æ‰«æä¸€è¡Œ
 			for (int j = 0; j < beads.length; j++){
 				Bead bead = beads[i][j];
 				color.append(bead.color);
 				points.add(new Point(i, j));
 			}
-			// ÅĞ¶ÏÊÇ·ñÓĞÎå¸ö»òÎå¸öÒÔÉÏµÄÍ¬É«Öé×ÓÁ¬ÔÚÒ»Æğ
+			// åˆ¤æ–­æ˜¯å¦æœ‰äº”ä¸ªæˆ–äº”ä¸ªä»¥ä¸Šçš„åŒè‰²ç å­è¿åœ¨ä¸€èµ·
 			for (String str : Constant.FINAL_COLORS){
-				// ÓĞÎå¸öÍ¬É«µÄÖé×ÓÁ¬ÔÚÒ»Æğ
+				// æœ‰äº”ä¸ªåŒè‰²çš„ç å­è¿åœ¨ä¸€èµ·
 				if (color.toString().contains(str)){
-					// »ñÈ¡Á¬ÔÚÒ»ÆğµÄÎå¸ö»òÎå¸öÒÔÉÏµÄÖé×Ó¶ÔÓ¦µÄµã
+					// è·å–è¿åœ¨ä¸€èµ·çš„äº”ä¸ªæˆ–äº”ä¸ªä»¥ä¸Šçš„ç å­å¯¹åº”çš„ç‚¹
 					int begin = color.indexOf(str);
 					int end = color.lastIndexOf(str) + str.length();
 					List<Point> temps = new ArrayList<Point>();
@@ -111,35 +111,35 @@ public class ScanArithmetic {
 		return null;
 	}
 	/**
-	 * ×óĞ±É¨Ãè
+	 * å·¦æ–œæ‰«æ
 	 * @param beads
 	 * @return
 	 */
 	private static List<Point> leftSlantingScan(Bead[][] beads){
-		// ÕÒÇø¼ä(0,4-0,0-4,0)
+		// æ‰¾åŒºé—´(0,4-0,0-4,0)
 		for (int i = -4; i <= 4; i++){
-			// ¶¨Òå±äÁ¿À´Æ´½ÓÕâÒ»ĞĞÖĞÖé×ÓµÄÑÕÉ«
+			// å®šä¹‰å˜é‡æ¥æ‹¼æ¥è¿™ä¸€è¡Œä¸­ç å­çš„é¢œè‰²
 			StringBuilder color = new StringBuilder();
-			// ¶¨Òå±äÁ¿À´»º´æÕâÒ»ĞĞÖĞµÄÖé×Ó¶ÔÓ¦µÄµãµÄ¼¯ºÏ
+			// å®šä¹‰å˜é‡æ¥ç¼“å­˜è¿™ä¸€è¡Œä¸­çš„ç å­å¯¹åº”çš„ç‚¹çš„é›†åˆ
 			List<Point> points = new ArrayList<Point>();
-			if (i <= 0){ // »ùÓÚ0,4µãÍùÓÒÏÂÉ¨
+			if (i <= 0){ // åŸºäº0,4ç‚¹å¾€å³ä¸‹æ‰«
 				for (int j = 0; j < beads.length + i; j++){
 					Bead bead = beads[j][j - i];
 					color.append(bead.color);
 					points.add(new Point(j, j - i));
 				}
-			}else{ // »ùÓÚ8,7µãÍù×óÉÏÉ¨
+			}else{ // åŸºäº8,7ç‚¹å¾€å·¦ä¸Šæ‰«
 				for (int j = beads.length - 1; j >= i; j--){
 					Bead bead = beads[j][j - i];
 					color.append(bead.color);
 					points.add(new Point(j, j - i));
 				}
 			}
-			// ÅĞ¶ÏÊÇ·ñÓĞÎå¸ö»òÎå¸öÒÔÉÏµÄÍ¬É«Öé×ÓÁ¬ÔÚÒ»Æğ
+			// åˆ¤æ–­æ˜¯å¦æœ‰äº”ä¸ªæˆ–äº”ä¸ªä»¥ä¸Šçš„åŒè‰²ç å­è¿åœ¨ä¸€èµ·
 			for (String str : Constant.FINAL_COLORS){
-				// ÓĞÎå¸öÍ¬É«µÄÖé×ÓÁ¬ÔÚÒ»Æğ
+				// æœ‰äº”ä¸ªåŒè‰²çš„ç å­è¿åœ¨ä¸€èµ·
 				if (color.toString().contains(str)){
-					// »ñÈ¡Á¬ÔÚÒ»ÆğµÄÎå¸ö»òÎå¸öÒÔÉÏµÄÖé×Ó¶ÔÓ¦µÄµã
+					// è·å–è¿åœ¨ä¸€èµ·çš„äº”ä¸ªæˆ–äº”ä¸ªä»¥ä¸Šçš„ç å­å¯¹åº”çš„ç‚¹
 					int begin = color.indexOf(str);
 					int end = color.lastIndexOf(str) + str.length();
 					List<Point> temps = new ArrayList<Point>();
@@ -153,25 +153,25 @@ public class ScanArithmetic {
 		return null;
 	}
 	/**
-	 * ÓÒĞ±É¨Ãè
+	 * å³æ–œæ‰«æ
 	 * @param beads
 	 * @return
 	 */
 	private static List<Point> rightSlantingScan(Bead[][] beads){
-		// ÕÒÇø¼ä(4,0-8,0-8,4)
+		// æ‰¾åŒºé—´(4,0-8,0-8,4)
 		for (int i = 4; i <= 12; i++){
 			
-			// ¶¨Òå±äÁ¿À´Æ´½ÓÕâÒ»ĞĞÖĞÖé×ÓµÄÑÕÉ«
+			// å®šä¹‰å˜é‡æ¥æ‹¼æ¥è¿™ä¸€è¡Œä¸­ç å­çš„é¢œè‰²
 			StringBuilder color = new StringBuilder();
-			// ¶¨Òå±äÁ¿À´»º´æÕâÒ»ĞĞÖĞµÄÖé×Ó¶ÔÓ¦µÄµãµÄ¼¯ºÏ
+			// å®šä¹‰å˜é‡æ¥ç¼“å­˜è¿™ä¸€è¡Œä¸­çš„ç å­å¯¹åº”çš„ç‚¹çš„é›†åˆ
 			List<Point> points = new ArrayList<Point>();
-			if (i <= 8){ // »ùÓÚ0,4µãÍùÓÒÉÏÉ¨
+			if (i <= 8){ // åŸºäº0,4ç‚¹å¾€å³ä¸Šæ‰«
 				for (int j = 0; j <= i; j++){
 					Bead bead = beads[j][i - j];
 					color.append(bead.color);
 					points.add(new Point(j, i - j));
 				}
-			}else{ // »ùÓÚ8,1µãÍù×óÏÂÉ¨
+			}else{ // åŸºäº8,1ç‚¹å¾€å·¦ä¸‹æ‰«
 				for (int j = beads.length - 1; j > i - beads.length; j--){
 					// i = 12
 					Bead bead = beads[j][i - j]; 
@@ -179,11 +179,11 @@ public class ScanArithmetic {
 					points.add(new Point(j, i - j));
 				}
 			}
-			// ÅĞ¶ÏÊÇ·ñÓĞÎå¸ö»òÎå¸öÒÔÉÏµÄÍ¬É«Öé×ÓÁ¬ÔÚÒ»Æğ
+			// åˆ¤æ–­æ˜¯å¦æœ‰äº”ä¸ªæˆ–äº”ä¸ªä»¥ä¸Šçš„åŒè‰²ç å­è¿åœ¨ä¸€èµ·
 			for (String str : Constant.FINAL_COLORS){
-				// ÓĞÎå¸öÍ¬É«µÄÖé×ÓÁ¬ÔÚÒ»Æğ
+				// æœ‰äº”ä¸ªåŒè‰²çš„ç å­è¿åœ¨ä¸€èµ·
 				if (color.toString().contains(str)){
-					// »ñÈ¡Á¬ÔÚÒ»ÆğµÄÎå¸ö»òÎå¸öÒÔÉÏµÄÖé×Ó¶ÔÓ¦µÄµã
+					// è·å–è¿åœ¨ä¸€èµ·çš„äº”ä¸ªæˆ–äº”ä¸ªä»¥ä¸Šçš„ç å­å¯¹åº”çš„ç‚¹
 					int begin = color.indexOf(str);
 					int end = color.lastIndexOf(str) + str.length();
 					List<Point> temps = new ArrayList<Point>();

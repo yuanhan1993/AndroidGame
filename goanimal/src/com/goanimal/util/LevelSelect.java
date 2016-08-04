@@ -5,7 +5,7 @@ package com.goanimal.util;
 
 
 /**
- * @author 遥指天下
+ * @author 閬ユ寚澶╀笅
  *
  */
 public class LevelSelect {
@@ -28,7 +28,7 @@ private int point=0;
 	}
 
 	/**
-	 * 关卡选择
+	 * 鍏冲崱閫夋嫨
 	 * @return
 	 */
 	public int getWlevel() {
@@ -36,7 +36,7 @@ private int point=0;
 	}
 
 	/**
-	 * 分数过关要求
+	 * 鍒嗘暟杩囧叧瑕佹眰
 	 * @return
 	 */
 	public int getPoint() {

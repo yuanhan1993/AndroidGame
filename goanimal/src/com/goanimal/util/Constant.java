@@ -7,21 +7,21 @@ import com.example.goanimal.R;
 
 
 /**
- * ³£Á¿Àà
+ * å¸¸é‡ç±»
  * @version 1.0
  */
 public final class Constant {
-	/** ¶¨ÒåÖé×Ó¶şÎ¬Êı×éµÄ´óĞ¡ */
+	/** å®šä¹‰ç å­äºŒç»´æ•°ç»„çš„å¤§å° */
 	public static final int BEAD_SIZE = 9;
-	/** ¶¨ÒåÍø¸ñ×ó±ß¡¢ÓÒ±ßµÄ¼äÏ¶ (Ò»±ß) */
+	/** å®šä¹‰ç½‘æ ¼å·¦è¾¹ã€å³è¾¹çš„é—´éš™ (ä¸€è¾¹) */
 	public static final float LEFT_RIGHT_SPACE = 6.5f;
-	/** ¶¨ÒåÍø¸ñÉÏ±ß¡¢ÏÂ±ßµÄ¼äÏ¶ (Ò»±ß) */
+	/** å®šä¹‰ç½‘æ ¼ä¸Šè¾¹ã€ä¸‹è¾¹çš„é—´éš™ (ä¸€è¾¹) */
 	public static final float TOP_BUTTOM_SPACE = 5.5f;
-	/** ¶¨Òå³õÊ¼»¯Öé×ÓµÄÊıÁ¿ */
+	/** å®šä¹‰åˆå§‹åŒ–ç å­çš„æ•°é‡ */
 	public static final int INIT_NUM = 3;
 	
 	
-	/** ¶¨ÒåÁùÖÖ¶¯ÎïÖé×ÓµÄ×ÊÔ´ÎÄ¼şµÄid */
+	/** å®šä¹‰å…­ç§åŠ¨ç‰©ç å­çš„èµ„æºæ–‡ä»¶çš„id */
 	public static final int[] BEAD_ICONS = {
 		R.drawable.bang_1,
 		R.drawable.bang_2,
@@ -30,26 +30,26 @@ public final class Constant {
 		R.drawable.bang_5,
 		R.drawable.bang_6
 	};
-	/**¶¨ÒåµÚÒ»¹Ø¶¯ÎïÖé×ÓµÄ×ÊÔ´ÎÄ¼şid */
+	/**å®šä¹‰ç¬¬ä¸€å…³åŠ¨ç‰©ç å­çš„èµ„æºæ–‡ä»¶id */
 	public static final int[] BEAD_ICONS1 = {
 		R.drawable.bang_1,
 		R.drawable.bang_2,
 	};
-	/**¶¨ÒåµÚ¶ş¹Ø¶¯ÎïÖé×ÓµÄ×ÊÔ´ÎÄ¼şid */
+	/**å®šä¹‰ç¬¬äºŒå…³åŠ¨ç‰©ç å­çš„èµ„æºæ–‡ä»¶id */
 	public static final int[] BEAD_ICONS2 = {
 		R.drawable.bang_1,
 		R.drawable.bang_2,
 		R.drawable.bang_3,
 		
 	};
-	/**¶¨ÒåµÚÈı¹Ø¶¯ÎïÖé×ÓµÄ×ÊÔ´ÎÄ¼şid */
+	/**å®šä¹‰ç¬¬ä¸‰å…³åŠ¨ç‰©ç å­çš„èµ„æºæ–‡ä»¶id */
 	public static final int[] BEAD_ICONS3 = {
 		R.drawable.bang_1,
 		R.drawable.bang_2,
 		R.drawable.bang_4,
 		R.drawable.bang_3,
 	};
-	/**¶¨ÒåµÚËÄ¹Ø¶¯ÎïÖé×ÓµÄ×ÊÔ´ÎÄ¼şid */
+	/**å®šä¹‰ç¬¬å››å…³åŠ¨ç‰©ç å­çš„èµ„æºæ–‡ä»¶id */
 	public static final int[] BEAD_ICONS4 = {
 		R.drawable.bang_1,
 		R.drawable.bang_2,
@@ -60,42 +60,42 @@ public final class Constant {
 	};
 	
 	
-	/** ¶¨ÒåÁùÖÖÖé×ÓµÄÑÕÉ« */
+	/** å®šä¹‰å…­ç§ç å­çš„é¢œè‰² */
 	public static final String[] BEAD_COLORS = {"A","B","C","D","E","F"};
-	/** ¶¨ÒåÁùÖÖÖé×ÓµÄ¿ÉÏûÑÕÉ« */
+	/** å®šä¹‰å…­ç§ç å­çš„å¯æ¶ˆé¢œè‰² */
 	public static final String[] FINAL_COLORS = {"AAAAA", "BBBBB", "CCCCC", "DDDDD", "EEEEE", "FFFFF"};
-	/** ¶¨ÒåÃ¿´ÎÉú³ÉÖé×ÓµÄÊıÁ¿ */
+	/** å®šä¹‰æ¯æ¬¡ç”Ÿæˆç å­çš„æ•°é‡ */
 	public static final int PER_NUM = 3;
 	
-	/** ¶¨ÒåËõ·Å±ÈÂÊ */
+	/** å®šä¹‰ç¼©æ”¾æ¯”ç‡ */
 	public static final float MATRIX_SCALE = 0.8f;
 	
 	
-	/** ¶¨ÒåÖé×ÓÌø¶¯µÄ±êÊ¶·ûÓëÊ±³¤ */
+	/** å®šä¹‰ç å­è·³åŠ¨çš„æ ‡è¯†ç¬¦ä¸æ—¶é•¿ */
 	public static final long TIMER_1 = 200;
 	public static final int FLAG_1 = 0x110;
 	
-	/** ¶¨Òå×ßÖé×ÓµÄ±êÊ¶·ûÓëÊ±³¤ */
+	/** å®šä¹‰èµ°ç å­çš„æ ‡è¯†ç¬¦ä¸æ—¶é•¿ */
 	public static final long TIMER_2 = 100;
 	public static final int FLAG_2 = 0x111;
 	
-	/** ¶¨ÒåÏÔÊ¾Öé×ÓµÄ±êÊ¶·ûÓëÊ±³¤ */
+	/** å®šä¹‰æ˜¾ç¤ºç å­çš„æ ‡è¯†ç¬¦ä¸æ—¶é•¿ */
 	public static final long TIMER_3 = 100;
 	public static final int FLAG_3 = 0x112;
 	
-	/** ¶¨ÒåÏûÖé×ÓµÄ±êÊ¶·ûÓëÊ±³¤ */
+	/** å®šä¹‰æ¶ˆç å­çš„æ ‡è¯†ç¬¦ä¸æ—¶é•¿ */
 	public static final long TIMER_4 = 300;
 	public static final int FLAG_4 = 0x113;
 	
-	/** ¶¨ÒåÓÃ»§×ßÍêÖé×ÓÒªÏûÖé×ÓµÄ±êÊ¶·û */
+	/** å®šä¹‰ç”¨æˆ·èµ°å®Œç å­è¦æ¶ˆç å­çš„æ ‡è¯†ç¬¦ */
 	public static final int SCAN_TYPE_1 = 1;
-	/** ¶¨ÒåÏµÍ³Éú³ÉÁËÈı¸öÖé×ÓÒªÏûÖé×ÓµÄ±êÊ¶·û */
+	/** å®šä¹‰ç³»ç»Ÿç”Ÿæˆäº†ä¸‰ä¸ªç å­è¦æ¶ˆç å­çš„æ ‡è¯†ç¬¦ */
 	public static final int SCAN_TYPE_2 = 2;
 	
-	/** ¶¨ÒåÒôĞ§µÄ×ÊÔ´Êı×é */
+	/** å®šä¹‰éŸ³æ•ˆçš„èµ„æºæ•°ç»„ */
 	public static final int[] SOUNDS = {R.raw.selected, R.raw.error, R.raw.clear};
-	/**¶¨ÒåÒôÀÖµÄ×ÊÔ´Êı×é */
+	/**å®šä¹‰éŸ³ä¹çš„èµ„æºæ•°ç»„ */
 	public static final int[] MUSIC={R.raw.piano_for_elise,R.raw.piano_box,R.raw.piano_dream_wedding,R.raw.piano_kiss_the_rain,R.raw.piano_spring,R.raw.piano_summer};
-	/** ¶¨Òå¿ª³¡¶¯»­ÒôĞ§µÄ×ÊÔ´Êı×é */
+	/** å®šä¹‰å¼€åœºåŠ¨ç”»éŸ³æ•ˆçš„èµ„æºæ•°ç»„ */
 	public static final int[] WSOUNDS = {R.raw.logo_music, R.raw.welcome};
 }

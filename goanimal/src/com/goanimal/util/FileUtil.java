@@ -5,26 +5,26 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
 /**
- * ÎÄ¼ş¶ÁĞ´¹¤¾ßÀà
+ * æ–‡ä»¶è¯»å†™å·¥å…·ç±»
  * @version 1.0
  */
 public class FileUtil {
 
 	/**
-	 * Ğ´·ÖÊı
+	 * å†™åˆ†æ•°
 	 * @param context
 	 * @param score
 	 */
 	public static void writeScore(Context context,int score){
-		// µÚÒ»¸ö²ÎÊı: Éú³ÉxmlµÄÎÄ¼şÃû
-		// µÚ¶ş¸ö²ÎÊı: ÒÔÊ²Ã´ÑùµÄ·½Ê½²Ù×÷Õâ¸öÎÄ¼ş
+		// ç¬¬ä¸€ä¸ªå‚æ•°: ç”Ÿæˆxmlçš„æ–‡ä»¶å
+		// ç¬¬äºŒä¸ªå‚æ•°: ä»¥ä»€ä¹ˆæ ·çš„æ–¹å¼æ“ä½œè¿™ä¸ªæ–‡ä»¶
 		SharedPreferences shared = context.getSharedPreferences("goanimal_score", Context.MODE_PRIVATE);
 		Editor editor = shared.edit();
 		editor.putInt("score", score);
-		editor.commit(); // Ìá½»Êı¾İ
+		editor.commit(); // æäº¤æ•°æ®
 	}
 	/**
-	 * ¶ÁÈ¡·ÖÊı
+	 * è¯»å–åˆ†æ•°
 	 * @param context
 	 * @return
 	 */

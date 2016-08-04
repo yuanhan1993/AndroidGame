@@ -23,33 +23,33 @@ import com.goanimal.util.Constant;
 import com.goanimal.util.FileUtil;
 
 /**
- * @author Ò£Ö¸ÌìÏÂ
+ * @author é¥æŒ‡å¤©ä¸‹
  *
  */
 public class GameView3 extends View{
 
-	/** ¶¨ÒåÖéÅÌ */
+	/** å®šä¹‰ç ç›˜ */
 	private BeadBoard beadBoard;
-	/** ¶¨ÒåÒµÎñ²ã¶ÔÏó */
+	/** å®šä¹‰ä¸šåŠ¡å±‚å¯¹è±¡ */
 	private GameService3 gameService3;
-	/** ¶¨ÒåMatrix */
+	/** å®šä¹‰Matrix */
 	private Matrix m = new Matrix();
-	/** ¶¨ÒåÑ¡ÖĞµÄÖé×Ó */
+	/** å®šä¹‰é€‰ä¸­çš„ç å­ */
 	private Bead selectedBead;
-	/** ¶¨ÒåÑ¡ÖĞµÄÖé×Ó·Å´ó»òÕßËõĞ¡µÄ±êÊ¶·û */
+	/** å®šä¹‰é€‰ä¸­çš„ç å­æ”¾å¤§æˆ–è€…ç¼©å°çš„æ ‡è¯†ç¬¦ */
 	private boolean isFlag = true;
-	/** ¶¨ÒåÄ¿µÄµØÖé×Ó */
+	/** å®šä¹‰ç›®çš„åœ°ç å­ */
 	private Bead targetBead;
-	/** ¶¨ÒåÒ»¸öÁÙÊ±µÄÖé×ÓÀ´»º´æÑ¡ÖĞµÄÖé×Ó */
+	/** å®šä¹‰ä¸€ä¸ªä¸´æ—¶çš„ç å­æ¥ç¼“å­˜é€‰ä¸­çš„ç å­ */
 	private Bead tempBead;
-	/** ¶¨ÒåÒ»¸öÊôĞÔ»º´æÉÏÒ»¸öµã */
+	/** å®šä¹‰ä¸€ä¸ªå±æ€§ç¼“å­˜ä¸Šä¸€ä¸ªç‚¹ */
 	private Point upPoint;
 	
 	public GameView3(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		
 		this.beadBoard = new BeadBoard(context);
-		// ÉèÖÃÀúÊ··ÖÊı
+		// è®¾ç½®å†å²åˆ†æ•°
 		this.beadBoard.setHistScore(FileUtil.readScore(context));
 		m.setScale(Constant.MATRIX_SCALE, Constant.MATRIX_SCALE);
 	}
@@ -58,21 +58,21 @@ public class GameView3 extends View{
 	public void draw(Canvas canvas) {
 		super.draw(canvas);
 		Paint paint = new Paint();
-		// ÉèÖÃ×ÖÌå´óĞ¡
+		// è®¾ç½®å­—ä½“å¤§å°
 		paint.setTextSize(30);
-		// ÉèÖÃÑÕÉ«
+		// è®¾ç½®é¢œè‰²
 		paint.setColor(Color.BLACK);
-		// ¼ÆËã³ö×ó±ßµÄÎ»ÖÃ
+		// è®¡ç®—å‡ºå·¦è¾¹çš„ä½ç½®
 		float left = this.getWidth() / 2 - beadBoard.topImage.getWidth() / 2;
-		// »æÖÆ×îºÃ·ÖÊı £¨×ó±ß×îÖĞ¼ä£©
+		// ç»˜åˆ¶æœ€å¥½åˆ†æ•° ï¼ˆå·¦è¾¹æœ€ä¸­é—´ï¼‰
 		canvas.drawText(this.getResources().getString(R.string.hist_score), 
 				left / 4, 
 				beadBoard.topImage.getHeight() / 2
 				+ paint.getTextSize() / 2, paint);
 		
-		// »æÖÆÖĞ¼äµÄĞ¡ÖéÅÌ
+		// ç»˜åˆ¶ä¸­é—´çš„å°ç ç›˜
 		canvas.drawBitmap(beadBoard.topImage, left, 0, paint);
-		// »æÖÆÏÂÒ»ÂÖÒªÏÔÊ¾µÄÈı¸öÖé×Ó
+		// ç»˜åˆ¶ä¸‹ä¸€è½®è¦æ˜¾ç¤ºçš„ä¸‰ä¸ªç å­
 		List<Bead> lists =  gameService3.getPreparedBeads();
 		for (int i = 0; i < lists.size(); i++){
 			Bitmap source = lists.get(i).getBitmap();
@@ -80,33 +80,33 @@ public class GameView3 extends View{
 			canvas.drawBitmap(source, left + i * beadBoard.topImage.getWidth() / 3 + 2.0f, 0, paint);
 		}
 		
-		// »æÖÆµ±Ç°·ÖÊı (ÓÒ±ß×îÖĞ¼ä)
+		// ç»˜åˆ¶å½“å‰åˆ†æ•° (å³è¾¹æœ€ä¸­é—´)
 		canvas.drawText(this.getResources().getString(R.string.total_score) + beadBoard.getTotalScore(), 
 				left + beadBoard.topImage.getWidth() + left / 4, 
 				beadBoard.topImage.getHeight() / 2
 				+ paint.getTextSize() / 2, paint);
 		
 		
-		// »æÖÆÖéÅÌ
+		// ç»˜åˆ¶ç ç›˜
 		canvas.drawBitmap(beadBoard.boardImage, 0, beadBoard.topImage.getHeight(), paint);
 		
-		// »æÖÆÖé×Ó
+		// ç»˜åˆ¶ç å­
 		for (int i = 0; i < beadBoard.beads.length; i++){
 			for (int j = 0; j < beadBoard.beads.length; j++){
 				Bead bead = beadBoard.beads[i][j];
-				if (bead.getBitmap() != null){ // »æÖÆÖé×Ó
-					// »ñÈ¡¿ÉÏûÖé×ÓÁ¬½Óµã
+				if (bead.getBitmap() != null){ // ç»˜åˆ¶ç å­
+					// è·å–å¯æ¶ˆç å­è¿æ¥ç‚¹
 					List<Point> points = gameService3.getLinkPoints();
 					
-					// ÅĞ¶ÏÊÇ²»ÊÇÓÃ»§Ñ¡ÖĞµÄÖé×Ó
+					// åˆ¤æ–­æ˜¯ä¸æ˜¯ç”¨æˆ·é€‰ä¸­çš„ç å­
 					if (bead.equals(selectedBead) || points.contains(new Point(bead.x, bead.y))){
-						if (isFlag){ // Õı³£
+						if (isFlag){ // æ­£å¸¸
 							canvas.drawBitmap(bead.getBitmap(), 
 									i * beadBoard.gridWidth + Constant.LEFT_RIGHT_SPACE * beadBoard.scale, 
 									j * beadBoard.gridHeight + Constant.TOP_BUTTOM_SPACE * beadBoard.scale
 									+ beadBoard.topImage.getHeight(), 
 									paint);
-						}else{ // ËõĞ¡
+						}else{ // ç¼©å°
 							
 							Bitmap source= bead.getBitmap();
 							Bitmap temp = Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(), m, true);
@@ -118,7 +118,7 @@ public class GameView3 extends View{
 									+ (source.getHeight() - temp.getHeight())/ 2, 
 									paint);
 						}
-					}else{ // ²»ÊÇÓÃ»§Ñ¡ÖĞµÄÖé×Ó
+					}else{ // ä¸æ˜¯ç”¨æˆ·é€‰ä¸­çš„ç å­
 						canvas.drawBitmap(bead.getBitmap(), 
 								i * beadBoard.gridWidth + Constant.LEFT_RIGHT_SPACE * beadBoard.scale, 
 								j * beadBoard.gridHeight + Constant.TOP_BUTTOM_SPACE * beadBoard.scale
@@ -130,7 +130,7 @@ public class GameView3 extends View{
 		}
 	}
 	
-	/** »ñÈ¡ÖéÅÌÊµÌå·½·¨ */
+	/** è·å–ç ç›˜å®ä½“æ–¹æ³• */
 	public BeadBoard getBeadBoard() {
 		return beadBoard;
 	}
@@ -146,10 +146,10 @@ public class GameView3 extends View{
 
 	public void setIsFlag() {
 		this.isFlag = !isFlag;
-		// ÖØĞÂ»æÖÆ
+		// é‡æ–°ç»˜åˆ¶
 		this.postInvalidate();
 	}
-	// ÒÆ¶¯Öé×Ó
+	// ç§»åŠ¨ç å­
 	public void moveBead(Point point) {
 		if (upPoint != null){
 			beadBoard.beads[upPoint.x][upPoint.y].setBitmap(null);
@@ -158,7 +158,7 @@ public class GameView3 extends View{
 			beadBoard.beads[point.x][point.y].setBitmap(tempBead.getBitmap());
 			upPoint = point;
 		}else{
-			// Ä¿µÄµã
+			// ç›®çš„ç‚¹
 			beadBoard.beads[targetBead.x][targetBead.y].setBitmap(tempBead.getBitmap());
 			beadBoard.beads[targetBead.x][targetBead.y].color = tempBead.color;
 			upPoint = null;
@@ -166,18 +166,18 @@ public class GameView3 extends View{
 		}
 		this.postInvalidate();
 	}
-	// ÉèÖÃÄ¿µÄÖé×Ó
+	// è®¾ç½®ç›®çš„ç å­
 	public void setTargetBead(Bead targetBead) {
 		this.targetBead = targetBead;
-		// ´´½¨tempBeadÀ´»º´æselectedBead
+		// åˆ›å»ºtempBeadæ¥ç¼“å­˜selectedBead
 		tempBead = new Bead();
 		tempBead.setBitmap(selectedBead.getBitmap());
 		tempBead.color = selectedBead.color;
-		// ½«Ñ¡ÖĞµÄÖé×ÓÉèÖÃÎª¿Õ
+		// å°†é€‰ä¸­çš„ç å­è®¾ç½®ä¸ºç©º
 		selectedBead.setBitmap(null);
 		selectedBead = null;
 	}
-	/** ÏÔÊ¾Ò»¸öÖé×Ó */
+	/** æ˜¾ç¤ºä¸€ä¸ªç å­ */
 	public void displayBead(Bead bead) {
 		beadBoard.beads[bead.x][bead.y].setBitmap(bead.getBitmap());
 		beadBoard.beads[bead.x][bead.y].color = bead.color;

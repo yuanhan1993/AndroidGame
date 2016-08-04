@@ -15,7 +15,7 @@ public class MusicService extends Service{
 		
 		
 		mp.start();
-		 //²¥·ÅÍê±ÏÖ®ºóµÄ´¦Àí
+		 //æ’­æ”¾å®Œæ¯•ä¹‹åçš„å¤„ç†
 		mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
 			
 			@Override
@@ -30,7 +30,7 @@ public class MusicService extends Service{
 			}
 		});
 		
-		 //²¥·ÅÒôÀÖ·¢Éú´íÎóµÄÊÂ¼ş´¦Àí
+		 //æ’­æ”¾éŸ³ä¹å‘ç”Ÿé”™è¯¯çš„äº‹ä»¶å¤„ç†
 		mp.setOnErrorListener(new MediaPlayer.OnErrorListener() {
 			
 			@Override
@@ -60,14 +60,14 @@ public class MusicService extends Service{
 	public void onCreate() {
 		// TODO Auto-generated method stub
 		try {
-			    //´´½¨Ëæ»ú²¥·ÅµÄÒôÀÖ
+			    //åˆ›å»ºéšæœºæ’­æ”¾çš„éŸ³ä¹
 			    int it=(int) (Math.random()*(Constant.MUSIC.length-1));
 			
 			
-				//´ÓÒôÀÖÊı×éÀïËæ»úÑ¡ÔñÒ»¸ö
+				//ä»éŸ³ä¹æ•°ç»„é‡Œéšæœºé€‰æ‹©ä¸€ä¸ª
 				mp=new MediaPlayer();
 				mp = MediaPlayer.create(MusicService.this, Constant.MUSIC[it]);
-				// ÉèÖÃÒôÆµÁ÷µÄÀàĞÍ
+				// è®¾ç½®éŸ³é¢‘æµçš„ç±»å‹
 				mp.setAudioStreamType(AudioManager.STREAM_MUSIC);
 				mp.prepareAsync();
 			

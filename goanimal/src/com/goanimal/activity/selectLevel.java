@@ -15,7 +15,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 /**
- * @author Ò£Ö¸ÌìÏÂ
+ * @author é¥æŒ‡å¤©ä¸‹
  *
  */
 public class selectLevel extends Activity{
@@ -40,7 +40,7 @@ public class selectLevel extends Activity{
 			
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(selectLevel.this, "¹§Ï²´ïµ½±¾¹ØµÄÒªÇó", Toast.LENGTH_SHORT).show();
+				Toast.makeText(selectLevel.this, "æ­å–œè¾¾åˆ°æœ¬å…³çš„è¦æ±‚", Toast.LENGTH_SHORT).show();
 				finish();
 				Intent play2=new Intent(selectLevel.this,Level2.class);
 				startActivity(play2);
@@ -57,7 +57,7 @@ public class selectLevel extends Activity{
 				finish();
 				Intent play3=new Intent(selectLevel.this,Level3.class);
 				startActivity(play3);
-					Toast.makeText(selectLevel.this, "¹§Ï²´ïµ½±¾¹ØµÄÒªÇó", Toast.LENGTH_SHORT).show();
+					Toast.makeText(selectLevel.this, "æ­å–œè¾¾åˆ°æœ¬å…³çš„è¦æ±‚", Toast.LENGTH_SHORT).show();
 				
 			}
 		});
@@ -73,7 +73,7 @@ public class selectLevel extends Activity{
 				
 				
 					
-					Toast.makeText(selectLevel.this, "¹§Ï²´ïµ½±¾¹ØµÄÒªÇó", Toast.LENGTH_SHORT).show();
+					Toast.makeText(selectLevel.this, "æ­å–œè¾¾åˆ°æœ¬å…³çš„è¦æ±‚", Toast.LENGTH_SHORT).show();
 				
 				
 			}
@@ -89,7 +89,7 @@ public class selectLevel extends Activity{
 				startActivity(play5);
 				
 					
-					Toast.makeText(selectLevel.this, "¹§Ï²´ïµ½±¾¹ØµÄÒªÇó", Toast.LENGTH_SHORT).show();
+					Toast.makeText(selectLevel.this, "æ­å–œè¾¾åˆ°æœ¬å…³çš„è¦æ±‚", Toast.LENGTH_SHORT).show();
 				
 				
 			}
@@ -99,7 +99,7 @@ public class selectLevel extends Activity{
 			
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(selectLevel.this, "ºÇºÇ£¬»¶Ó­ÄúÌá¹©ÒÔÏÂ¹Ø¿¨µÄĞÂ´´Òâ£¡", Toast.LENGTH_SHORT).show();
+				Toast.makeText(selectLevel.this, "å‘µå‘µï¼Œæ¬¢è¿æ‚¨æä¾›ä»¥ä¸‹å…³å¡çš„æ–°åˆ›æ„ï¼", Toast.LENGTH_SHORT).show();
 				
 			}
 		});
@@ -108,7 +108,7 @@ public class selectLevel extends Activity{
 			
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(selectLevel.this, "ºÇºÇ£¬»¶Ó­ÄúÌá¹©ÒÔÏÂ¹Ø¿¨µÄĞÂ´´Òâ£¡", Toast.LENGTH_SHORT).show();
+				Toast.makeText(selectLevel.this, "å‘µå‘µï¼Œæ¬¢è¿æ‚¨æä¾›ä»¥ä¸‹å…³å¡çš„æ–°åˆ›æ„ï¼", Toast.LENGTH_SHORT).show();
 				
 			}
 		});
@@ -117,7 +117,7 @@ public class selectLevel extends Activity{
 			
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(selectLevel.this, "ºÇºÇ£¬»¶Ó­ÄúÌá¹©ÒÔÏÂ¹Ø¿¨µÄĞÂ´´Òâ£¡", Toast.LENGTH_SHORT).show();
+				Toast.makeText(selectLevel.this, "å‘µå‘µï¼Œæ¬¢è¿æ‚¨æä¾›ä»¥ä¸‹å…³å¡çš„æ–°åˆ›æ„ï¼", Toast.LENGTH_SHORT).show();
 				
 			}
 		});
@@ -126,7 +126,7 @@ public class selectLevel extends Activity{
 			
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(selectLevel.this, "ºÇºÇ£¬»¶Ó­ÄúÌá¹©ÒÔÏÂ¹Ø¿¨µÄĞÂ´´Òâ£¡", Toast.LENGTH_SHORT).show();
+				Toast.makeText(selectLevel.this, "å‘µå‘µï¼Œæ¬¢è¿æ‚¨æä¾›ä»¥ä¸‹å…³å¡çš„æ–°åˆ›æ„ï¼", Toast.LENGTH_SHORT).show();
 				
 			}
 		});
@@ -144,10 +144,10 @@ public class selectLevel extends Activity{
 		
 	}
 	
-	/** ¼àÌıÊÇ²»ÊÇ°´·µ»Ø¼ü */
+	/** ç›‘å¬æ˜¯ä¸æ˜¯æŒ‰è¿”å›é”® */
 	@Override
 	public void onBackPressed() {
-		DialogUtil.createDialog(this, "ÄúÈ·¶¨ÒªÍË³öÓÎÏ·Âğ?").show();
+		DialogUtil.createDialog(this, "æ‚¨ç¡®å®šè¦é€€å‡ºæ¸¸æˆå—?").show();
 	}
 
 

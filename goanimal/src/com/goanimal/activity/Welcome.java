@@ -18,7 +18,7 @@ import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 /**
- * »¶Ó­Ö÷´°¿Ú
+ * æ¬¢è¿ä¸»çª—å£
  * @version 1.0
  */
 public class Welcome extends Activity {
@@ -28,20 +28,20 @@ public class Welcome extends Activity {
 	private ProgressBar horizonP;
 	private int mProgressStatus=0;
 	
-	// ¶¨ÒåHandlerÏûÏ¢¼àÌıÆ÷
+	// å®šä¹‰Handleræ¶ˆæ¯ç›‘å¬å™¨
 	private Handler handler = new Handler(new Handler.Callback() {
 		@Override
 		public boolean handleMessage(Message msg) {
-			// ¶ÔÏûÏ¢±êÊ¶·û×öÅĞ¶Ï
+			// å¯¹æ¶ˆæ¯æ ‡è¯†ç¬¦åšåˆ¤æ–­
 			if(msg.what==0x1313){
-				//µÚÒ»¸ö½çÃæ¶¯»­£¬ÏÔÊ¾¿ª·¢Õß Logo
+				//ç¬¬ä¸€ä¸ªç•Œé¢åŠ¨ç”»ï¼Œæ˜¾ç¤ºå¼€å‘è€… Logo
 				imageview=(ImageView) findViewById(R.id.imageView1);
 				AnimationSet Aset1=new AnimationSet(true);
 	    		ScaleAnimation scalA=new ScaleAnimation(0.0f, 0.8f, 0.0f, 0.8f,Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
 	    		scalA.setDuration(3000);
 	    		Aset1.addAnimation(scalA);
 	    		imageview.startAnimation(Aset1);
-	    		//¼ÓÔØÒôÀÖ
+	    		//åŠ è½½éŸ³ä¹
 	    		sound[0].start();
 			}
 			if(msg.what==0x1315){
@@ -51,14 +51,14 @@ public class Welcome extends Activity {
 			}
 			if (msg.what == 0x1314){
 				sound[1].stop();
-				// ´´½¨IntentÀ´´«µİÏûÏ¢
+				// åˆ›å»ºIntentæ¥ä¼ é€’æ¶ˆæ¯
 				Intent intent = new Intent(Welcome.this, MainMenu.class);
-				// Æô¶¯Activity
+				// å¯åŠ¨Activity
 				startActivity(intent);
 			}
 			return true;
 		}
-//µÚ¶ş¸ö¶¯»­½çÃæ£¬ÏÔÊ¾ÓÎÏ·ÔªËØ
+//ç¬¬äºŒä¸ªåŠ¨ç”»ç•Œé¢ï¼Œæ˜¾ç¤ºæ¸¸æˆå…ƒç´ 
 		private void runWelcome() {
 			// TODO Auto-generated method stub
 			setContentView(R.layout.an_translate);
@@ -106,14 +106,14 @@ public class Welcome extends Activity {
 			}).start();
     		AnimationSet Aset1=new AnimationSet(true);
     		ImageView imgv1=(ImageView) findViewById(R.id.img1);
-    		//µÚÒ»¸öĞ¡¶¯ÎïÒÆ¶¯¶¯»­
+    		//ç¬¬ä¸€ä¸ªå°åŠ¨ç‰©ç§»åŠ¨åŠ¨ç”»
     		TranslateAnimation trans1=new TranslateAnimation(Animation.RELATIVE_TO_SELF,0.0f,Animation.RELATIVE_TO_SELF, 0.5f,Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,10.5f);
     		trans1.setDuration(1000);
             trans1.setRepeatCount(3);
             trans1.setRepeatMode(Animation.REVERSE);
     		Aset1.addAnimation(trans1);
     		imgv1.startAnimation(Aset1);
-    		//µÚ¶ş¸öĞ¡¶¯ÎïÒÆ¶¯¶¯»­
+    		//ç¬¬äºŒä¸ªå°åŠ¨ç‰©ç§»åŠ¨åŠ¨ç”»
     		AnimationSet Aset2=new AnimationSet(true);
     		ImageView imgv2=(ImageView) findViewById(R.id.img2);
     		TranslateAnimation trans2=new TranslateAnimation(Animation.RELATIVE_TO_SELF,0.0f,Animation.RELATIVE_TO_SELF, 0.5f,Animation.RELATIVE_TO_SELF,1.0f,Animation.RELATIVE_TO_SELF,12.0f);
@@ -121,7 +121,7 @@ public class Welcome extends Activity {
     	    trans2.setRepeatCount(3);
     		Aset2.addAnimation(trans2);
     		imgv2.startAnimation(Aset2);
-    		//µÚÈı¸öĞ¡¶¯ÎïÒÆ¶¯¶¯»­
+    		//ç¬¬ä¸‰ä¸ªå°åŠ¨ç‰©ç§»åŠ¨åŠ¨ç”»
     		AnimationSet Aset3=new AnimationSet(true);
     		ImageView imgv3=(ImageView) findViewById(R.id.img3);
     		TranslateAnimation trans3=new TranslateAnimation(Animation.RELATIVE_TO_SELF,0.0f, Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,1.0f,Animation.RELATIVE_TO_SELF,9.0f);
@@ -131,7 +131,7 @@ public class Welcome extends Activity {
     		trans3.setFillAfter(true);
     		Aset3.addAnimation(trans3);
     		imgv3.startAnimation(Aset3);
-    		//µÚËÄ¸öĞ¡¶¯ÎïÒÆ¶¯¶¯»­
+    		//ç¬¬å››ä¸ªå°åŠ¨ç‰©ç§»åŠ¨åŠ¨ç”»
     		AnimationSet Aset4=new AnimationSet(true);
     		ImageView imgv4=(ImageView) findViewById(R.id.img4);
     		TranslateAnimation trans4=new TranslateAnimation(Animation.RELATIVE_TO_SELF,0.0f,Animation.RELATIVE_TO_SELF, 1.0f,Animation.RELATIVE_TO_SELF,1.0f,Animation.RELATIVE_TO_SELF,12.0f);
@@ -140,7 +140,7 @@ public class Welcome extends Activity {
     		trans4.setFillAfter(true);
     		Aset4.addAnimation(trans4);
     		imgv4.startAnimation(Aset4);
-    		//µÚÎå¸öĞ¡¶¯ÎïÒÆ¶¯¶¯»­
+    		//ç¬¬äº”ä¸ªå°åŠ¨ç‰©ç§»åŠ¨åŠ¨ç”»
     		AnimationSet Aset5=new AnimationSet(true);
     		ImageView imgv5=(ImageView) findViewById(R.id.img5);
     		TranslateAnimation trans5=new TranslateAnimation(Animation.RELATIVE_TO_SELF,0.0f,Animation.RELATIVE_TO_SELF, 0.5f,Animation.RELATIVE_TO_SELF,0.8f,Animation.RELATIVE_TO_SELF,18.0f);
@@ -150,7 +150,7 @@ public class Welcome extends Activity {
     		trans5.setFillAfter(true);
     		Aset5.addAnimation(trans5);
     		imgv5.startAnimation(Aset5);
-    		//µÚÁù¸öĞ¡¶¯ÎïÒÆ¶¯¶¯»­
+    		//ç¬¬å…­ä¸ªå°åŠ¨ç‰©ç§»åŠ¨åŠ¨ç”»
     		AnimationSet Aset6=new AnimationSet(true);
     		ImageView imgv6=(ImageView) findViewById(R.id.img6);
     		TranslateAnimation trans6=new TranslateAnimation(Animation.RELATIVE_TO_SELF,0.0f,Animation.RELATIVE_TO_SELF, 0.5f,Animation.RELATIVE_TO_SELF,1.0f,Animation.RELATIVE_TO_SELF,20.0f);
@@ -159,7 +159,7 @@ public class Welcome extends Activity {
     		trans6.setFillAfter(true);
     		Aset6.addAnimation(trans6);
     		imgv6.startAnimation(Aset6);
-    		//µÚÆß¸öĞ¡¶¯ÎïÒÆ¶¯¶¯»­
+    		//ç¬¬ä¸ƒä¸ªå°åŠ¨ç‰©ç§»åŠ¨åŠ¨ç”»
     		AnimationSet Aset7=new AnimationSet(true);
     		ImageView imgv7=(ImageView) findViewById(R.id.img7);
     		TranslateAnimation trans7=new TranslateAnimation(Animation.RELATIVE_TO_SELF,0.0f,Animation.RELATIVE_TO_SELF, 1.0f,Animation.RELATIVE_TO_SELF,1.0f,Animation.RELATIVE_TO_SELF,20.0f);
@@ -169,7 +169,7 @@ public class Welcome extends Activity {
     		trans7.setFillAfter(true);
     		Aset7.addAnimation(trans7);
     		imgv7.startAnimation(Aset7);
-    		//µÚ°Ë¸öĞ¡¶¯ÎïÒÆ¶¯¶¯»­
+    		//ç¬¬å…«ä¸ªå°åŠ¨ç‰©ç§»åŠ¨åŠ¨ç”»
     		AnimationSet Aset8=new AnimationSet(true);
     		ImageView imgv8=(ImageView) findViewById(R.id.img8);
     		TranslateAnimation trans8=new TranslateAnimation(Animation.RELATIVE_TO_SELF,0.0f,Animation.RELATIVE_TO_SELF, 1.0f,Animation.RELATIVE_TO_SELF,1.0f,Animation.RELATIVE_TO_SELF,20.0f);
@@ -178,7 +178,7 @@ public class Welcome extends Activity {
     		trans8.setFillAfter(true);
     		Aset8.addAnimation(trans8);
     		imgv8.startAnimation(Aset8);
-    		//µÚ¾Å¸öĞ¡¶¯ÎïÒÆ¶¯¶¯»­
+    		//ç¬¬ä¹ä¸ªå°åŠ¨ç‰©ç§»åŠ¨åŠ¨ç”»
     		AnimationSet Aset9=new AnimationSet(true);
     		ImageView imgv9=(ImageView) findViewById(R.id.img9);
     		TranslateAnimation trans9=new TranslateAnimation(Animation.RELATIVE_TO_SELF,0.0f,Animation.RELATIVE_TO_SELF, 1.5f,Animation.RELATIVE_TO_SELF,1.0f,Animation.RELATIVE_TO_SELF,20.0f);
@@ -198,31 +198,31 @@ public class Welcome extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.welcome);
 		
-		//ÑÓ³Ù10ºÁÃë·¢ËÍĞÅÏ¢
+		//å»¶è¿Ÿ10æ¯«ç§’å‘é€ä¿¡æ¯
 		handler.sendEmptyMessageDelayed(0x1313, 10);
-		//ÑÓ³Ù3010ºÁÃë·¢ËÍÏûÏ¢
+		//å»¶è¿Ÿ3010æ¯«ç§’å‘é€æ¶ˆæ¯
 		handler.sendEmptyMessageDelayed(0x1315, 3010);
-		// ÑÓ³Ù6000ºÁÃë·¢ËÍÏûÏ¢
+		// å»¶è¿Ÿ6000æ¯«ç§’å‘é€æ¶ˆæ¯
 		handler.sendEmptyMessageDelayed(0x1314, 6000);
-		//³õÊ¼»¯ÒôĞ§
+		//åˆå§‹åŒ–éŸ³æ•ˆ
 		for(int i=0;i<2;i++){
 			sound[i]=MediaPlayer.create(this, Constant.WSOUNDS[i]);
-			// ÉèÖÃÒôÆµÁ÷µÄÀàĞÍ
+			// è®¾ç½®éŸ³é¢‘æµçš„ç±»å‹
 			sound[i].setAudioStreamType(AudioManager.STREAM_MUSIC);
 		}
 	}
-	/** ¼àÌıÊÇ²»ÊÇ°´·µ»Ø¼ü */
+	/** ç›‘å¬æ˜¯ä¸æ˜¯æŒ‰è¿”å›é”® */
 	@Override
 	public void onBackPressed() {
-		DialogUtil.createDialog(this, "ÄúÈ·¶¨ÒªÍË³öÓÎÏ·Âğ?").show();
+		DialogUtil.createDialog(this, "æ‚¨ç¡®å®šè¦é€€å‡ºæ¸¸æˆå—?").show();
 	}
-	/** µ±Ç°Activity²»´¦ÓÚ»îÔ¾×´Ì¬ */
+	/** å½“å‰Activityä¸å¤„äºæ´»è·ƒçŠ¶æ€ */
 	@Override
 	protected void onPause() {
 		this.finish();
 		super.onPause();
 	}
-	/** µ±Ç°ActivityÏû»ÙÊ± */
+	/** å½“å‰Activityæ¶ˆæ¯æ—¶ */
 	@Override
 	protected void onDestroy() {
 		

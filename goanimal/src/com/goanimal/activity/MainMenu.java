@@ -57,7 +57,7 @@ public class MainMenu extends Activity{
 			public void onClick(View v) {
 				startAniam(buttonHelp);
 				
-						// µ¯³ö°ïÖúÍ¼Æ¬
+						// å¼¹å‡ºå¸®åŠ©å›¾ç‰‡
 						Toast toast=new Toast(MainMenu.this);
 						toast.setDuration(Toast.LENGTH_LONG);
 						toast.setGravity(Gravity.CENTER, 0, 0);
@@ -78,7 +78,7 @@ public class MainMenu extends Activity{
 			@Override
 			public void onClick(View v) {
 				startAniam(buttonStart);
-				//¿ªÊ¼ÓÎÏ·
+				//å¼€å§‹æ¸¸æˆ
 				Intent intents=new Intent(MainMenu.this,selectLevel.class);
 				startActivity(intents);
 				
@@ -89,8 +89,8 @@ public class MainMenu extends Activity{
 			
 			public void onClick(View v) {
 				startAniam(buttonExit);
-				// ½áÊøÓÎÏ·
-				DialogUtil.createDialog(MainMenu.this, "ÄúÈ·¶¨ÒªÍË³öÓÎÏ·Âğ?").show();
+				// ç»“æŸæ¸¸æˆ
+				DialogUtil.createDialog(MainMenu.this, "æ‚¨ç¡®å®šè¦é€€å‡ºæ¸¸æˆå—?").show();
 				Intent intent=new Intent(MainMenu.this,MusicService.class);
 				stopService(intent);
 				
@@ -101,11 +101,11 @@ public class MainMenu extends Activity{
 			
 			public  void onClick(View v) {
 				startAniam(buttonBoard);
-				// µ¯³öÍæ¼Ò·ÖÊıÁĞ±í
-				final String[] items=new String[]{"1.½­ËÕ  Ä§Å®ÄÈÄÈ  50505","2.½­ËÕ  Ë«Ç¹Ğ¡Ë§  50000","3.½­ËÕ  ÒôËÙĞ¡·É  45555"};
+				// å¼¹å‡ºç©å®¶åˆ†æ•°åˆ—è¡¨
+				final String[] items=new String[]{"1.æ±Ÿè‹  é­”å¥³å¨œå¨œ  50505","2.æ±Ÿè‹  åŒæªå°å¸…  50000","3.æ±Ÿè‹  éŸ³é€Ÿå°é£  45555"};
 				Builder builder=new AlertDialog.Builder(MainMenu.this);
-				builder.setTitle("Íæ¼ÒÁĞ±í");
-				builder.setNegativeButton("È¡Ïû", null);
+				builder.setTitle("ç©å®¶åˆ—è¡¨");
+				builder.setNegativeButton("å–æ¶ˆ", null);
 				builder.setItems(items, null);
 				builder.create().show();
 				
@@ -118,7 +118,7 @@ public class MainMenu extends Activity{
 			@Override
 			public void onClick(View v) {
 				startAniam(buttonSet);
-				//ÉèÖÃÒôÀÖºÍÒôĞ§
+				//è®¾ç½®éŸ³ä¹å’ŒéŸ³æ•ˆ
 				Intent set=new Intent(MainMenu.this,setActivity.class);
 				startActivityForResult(set, CODE);
 			}
@@ -137,14 +137,14 @@ public class MainMenu extends Activity{
 	}
 	@Override
 	public void onBackPressed() {
-		DialogUtil.createDialog(this, "ÄúÈ·¶¨ÒªÍË³öÓÎÏ·Âğ?").show();
+		DialogUtil.createDialog(this, "æ‚¨ç¡®å®šè¦é€€å‡ºæ¸¸æˆå—?").show();
 	}
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, data);
 	}
-	/** µ±Ç°´°¿ÚÖØĞÂ´¦ÓÚ»îÔ¾×´Ì¬ */
+	/** å½“å‰çª—å£é‡æ–°å¤„äºæ´»è·ƒçŠ¶æ€ */
 	@Override
 	protected void onResume() {
 		super.onResume();

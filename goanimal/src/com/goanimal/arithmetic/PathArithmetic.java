@@ -11,17 +11,17 @@ import android.graphics.Point;
 import android.util.Log;
 
 /**
- * Â·¾¶ËÑË÷µÄÉ¨ÃèËã·¨
+ * è·¯å¾„æœç´¢çš„æ‰«æç®—æ³•
  * @version 1.0
  */
 public class PathArithmetic {
 	
-	/** ¼ÇÂ¼É¨ÃèÒÑ¾­¾­¹ıµÄµã */
+	/** è®°å½•æ‰«æå·²ç»ç»è¿‡çš„ç‚¹ */
 	private List<Point> invalidPoints;
-	/** ¼ÇÂ¼ÓĞĞ§Â·¾¶µÄµã */
+	/** è®°å½•æœ‰æ•ˆè·¯å¾„çš„ç‚¹ */
 	private List<Point> pathPoints;
 	
-	// µ¥ÀıÄ£Ê½
+	// å•ä¾‹æ¨¡å¼
 	private static PathArithmetic pathArithmetic = new PathArithmetic();
 	private PathArithmetic(){}
 	public static PathArithmetic getInstance(){
@@ -36,26 +36,26 @@ public class PathArithmetic {
 	}
 	
 	/**
-	 * ¿í¶ÈÓÅÏÈËÑË÷·½·¨
-	 * @param from ¿ªÊ¼µã
-	 * @param to ½áÊøµã
-	 * @param beads Öé×Ó¶şÎ¬Êı×é
+	 * å®½åº¦ä¼˜å…ˆæœç´¢æ–¹æ³•
+	 * @param from å¼€å§‹ç‚¹
+	 * @param to ç»“æŸç‚¹
+	 * @param beads ç å­äºŒç»´æ•°ç»„
 	 * @return
 	 */
 	private boolean isLink(Point from, final Point to, Bead[][] beads) {
-		// µÚÒ»²½£º¼ÇÂ¼×ß¹ıµÄµã
+		// ç¬¬ä¸€æ­¥ï¼šè®°å½•èµ°è¿‡çš„ç‚¹
 		invalidPoints.add(from);
-		// µÚ¶ş²½£º»ñÈ¡ÉÏ¡¢ÓÒ¡¢×ó¡¢ÏÂËÄ¸öµã¡£
+		// ç¬¬äºŒæ­¥ï¼šè·å–ä¸Šã€å³ã€å·¦ã€ä¸‹å››ä¸ªç‚¹ã€‚
 		Point[] points = {
 			new Point(from.x, from.y - 1), 
 			new Point(from.x, from.y + 1),
 			new Point(from.x - 1, from.y),
 			new Point(from.x + 1, from.y)
 		};
-		// µÚÈı²½£ºÅĞ¶ÏËÄ¸öµãÊÇ·ñÓĞĞ§»òÕßÊÇÄ¿µÄµã¡£
+		// ç¬¬ä¸‰æ­¥ï¼šåˆ¤æ–­å››ä¸ªç‚¹æ˜¯å¦æœ‰æ•ˆæˆ–è€…æ˜¯ç›®çš„ç‚¹ã€‚
 		List<Point> temp = new ArrayList<Point>();
 		for (Point p : points){
-			// ÊÇ²»ÊÇµ½ÁËÄ¿µØµã
+			// æ˜¯ä¸æ˜¯åˆ°äº†ç›®åœ°ç‚¹
 			if (p.equals(to)){
 				pathPoints.add(p);
 				return true;
@@ -64,10 +64,10 @@ public class PathArithmetic {
 				temp.add(p);
 			}
 		}
-		// µÚËÄ²½£ºÅĞ¶ÏÓĞĞ§µãÊÇ·ñÈ«²¿Õ¼Íê¡£
+		// ç¬¬å››æ­¥ï¼šåˆ¤æ–­æœ‰æ•ˆç‚¹æ˜¯å¦å…¨éƒ¨å å®Œã€‚
 		if (temp.isEmpty()) return false;
 		
-		// µÚÎå²½£º¶ÔÓĞĞ§µã½ø°´×î¶ÌÂ·¾¶ÅÅĞò¡£
+		// ç¬¬äº”æ­¥ï¼šå¯¹æœ‰æ•ˆç‚¹è¿›æŒ‰æœ€çŸ­è·¯å¾„æ’åºã€‚
 		Collections.sort(temp, new Comparator<Point>() {
 			@Override
 			public int compare(Point p1, Point p2) {
@@ -76,7 +76,7 @@ public class PathArithmetic {
 				return r1 < r2 ? -1 : 0;
 			}
 		});
-		// µÚÁù²½£ºµİ¹éÕÒ³öÓĞĞ§µã¼°µ½ËÑË÷µ½Ä¿µÄµã»òÓĞĞ§µãÈ«²¿ËÑË÷Íê±Ï¡£
+		// ç¬¬å…­æ­¥ï¼šé€’å½’æ‰¾å‡ºæœ‰æ•ˆç‚¹åŠåˆ°æœç´¢åˆ°ç›®çš„ç‚¹æˆ–æœ‰æ•ˆç‚¹å…¨éƒ¨æœç´¢å®Œæ¯•ã€‚
 		for (Point p : temp){
 			boolean flag = isLink(p, to, beads);
 			if (flag){
@@ -87,7 +87,7 @@ public class PathArithmetic {
 		return false;
 	}
 	/**
-	 * ²é¼ìµãµÄÓĞĞ§ĞÔ
+	 * æŸ¥æ£€ç‚¹çš„æœ‰æ•ˆæ€§
 	 * @param point
 	 * @param beads
 	 * @return

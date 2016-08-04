@@ -6,59 +6,59 @@ import com.goanimal.domain.Bead;
 import android.graphics.Point;
 
 /**
- * ÓÎÏ·ÒµÎñ²Ù×÷½Ó¿Ú
+ * æ¸¸æˆä¸šåŠ¡æ“ä½œæ¥å£
  * @version 1.0
  */
 public interface GameService {
 	
-	/** »ñÈ¡ÏÂÒ»ÂÖÒªÏÔÊ¾µÄÈı¸öÖé×Ó */
+	/** è·å–ä¸‹ä¸€è½®è¦æ˜¾ç¤ºçš„ä¸‰ä¸ªç å­ */
 	List<Bead> getPreparedBeads();
 	/**
-	 * ¸ù¾İÓÃ»§µã»÷µÄ×ø±ê»ñÈ¡Ïà¶ÔÓ¦µÄÖé×Ó
-	 * @param x ×ø±ê
-	 * @param y ×ø±ê
+	 * æ ¹æ®ç”¨æˆ·ç‚¹å‡»çš„åæ ‡è·å–ç›¸å¯¹åº”çš„ç å­
+	 * @param x åæ ‡
+	 * @param y åæ ‡
 	 * @return Bead
 	 */
 	Bead getSelectedBead(float x, float y);
 	/**
-	 * »ñÈ¡Á½¸öÖé×Ó¿É×ßµÄÏßÂ·
-	 * @param selectedBead Ñ¡ÖĞµÄÖé×Ó
-	 * @param targetBead Ä¿±êµÄÖé×Ó
-	 * @return ¿É×ßÏßÂ·µãµÄ¼¯ºÏ
+	 * è·å–ä¸¤ä¸ªç å­å¯èµ°çš„çº¿è·¯
+	 * @param selectedBead é€‰ä¸­çš„ç å­
+	 * @param targetBead ç›®æ ‡çš„ç å­
+	 * @return å¯èµ°çº¿è·¯ç‚¹çš„é›†åˆ
 	 */
 	List<Point> getPath(Bead selectedBead, Bead targetBead);
 	/**
-	 * »ñÈ¡ÒªÏÔÊ¾µÄÈı¸öÖé×Ó
-	 * @return Öé×Ó¼¯ºÏ
+	 * è·å–è¦æ˜¾ç¤ºçš„ä¸‰ä¸ªç å­
+	 * @return ç å­é›†åˆ
 	 */
 	List<Bead> getDisplayBeads();
 	/**
-	 * É¨ÃèÖé×ÓµÄ·½·¨
+	 * æ‰«æç å­çš„æ–¹æ³•
 	 * @return
 	 */
 	boolean scanBead(int scanType);
 	/** 
-	 * »ñÈ¡·ÖÊı(Ã¿´ÎµÄµÃ·Ö) 
+	 * è·å–åˆ†æ•°(æ¯æ¬¡çš„å¾—åˆ†) 
 	 */
 	int getPerScore();
 	/** 
-	 * »ñÈ¡¿ÉÏûÖé×ÓµÄÁ¬½Óµã 
+	 * è·å–å¯æ¶ˆç å­çš„è¿æ¥ç‚¹ 
 	 */
 	List<Point> getLinkPoints();
 	/** 
-	 * ÉèÖÃÓÎÏ·ÀÛ¼Æ·ÖÊı 
+	 * è®¾ç½®æ¸¸æˆç´¯è®¡åˆ†æ•° 
 	 */
 	void setTotalScore();
 	/**
-	 * Çå³ı¿ÉÏûÖé×Ó
+	 * æ¸…é™¤å¯æ¶ˆç å­
 	 */
 	void clearBead();
 	/** 
-	 * »ñÈ¡ÖéÅÌÉÏËùÓĞµÄ¿ÕÖé×Ó 
+	 * è·å–ç ç›˜ä¸Šæ‰€æœ‰çš„ç©ºç å­ 
 	 */
 	List<Bead> getEmptyBeads();
 	/**
-	 * ÓÎÏ·ÖØĞÂ¿ªÊ¼µÄ·½·¨
+	 * æ¸¸æˆé‡æ–°å¼€å§‹çš„æ–¹æ³•
 	 */
 	void reset();
 	

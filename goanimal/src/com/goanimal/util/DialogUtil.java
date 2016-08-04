@@ -12,30 +12,30 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 /**
- * µ¯³ö´°ÌåµÄ¹¤¾ßÀà
+ * å¼¹å‡ºçª—ä½“çš„å·¥å…·ç±»
  * @version 1.0
  */
 public class DialogUtil {
 	
 	/**
-	 * ´´½¨µ¯³ö´°ÌåµÄ·½·¨
+	 * åˆ›å»ºå¼¹å‡ºçª—ä½“çš„æ–¹æ³•
 	 * @param context
 	 * @param message
 	 * @return
 	 */
 	public static Dialog createDialog(final Context context, String message){
 		AlertDialog.Builder builder = new AlertDialog.Builder(context);
-		builder.setTitle("ÌáÊ¾");
+		builder.setTitle("æç¤º");
 		builder.setMessage(message);
 		builder.setIcon(R.drawable.ic_launcher);
-		builder.setPositiveButton("È·¶¨", new DialogInterface.OnClickListener() {
+		builder.setPositiveButton("ç¡®å®š", new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface arg0, int arg1) {
 				//((Activity)context).finish();
 				AppManager.getAppManager().AppExit(context);
 			}
 		});
-		builder.setNegativeButton("È¡Ïû", null);
+		builder.setNegativeButton("å–æ¶ˆ", null);
 		return builder.create();
 	}
 }
